@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Gurunanak Relocation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="head.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6300;
+            --primary-light: rgba(255, 99, 0, 0.1);
+            --secondary: #5c0fd9;
+            --secondary-light: rgba(92, 15, 217, 0.1);
+            --dark: #1a1a1a;
+            --dark-80: rgba(26, 26, 26, 0.8);
+            --light: #f8f9fa;
+            --light-90: rgba(248, 249, 250, 0.9);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --border-radius: 12px;
+            --border-radius-lg: 24px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+        
+        /* Header - Glass Morphism Effect */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: var(--shadow);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        header.scrolled {
+            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            transform: translateY(-3px);
+        }
+        
+        .logo-image {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Hero Section - About Page */
+        .about-hero {
+            height: 60vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        
+        .about-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            z-index: -2;
+        }
+        
+        .about-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(92, 15, 217, 0.3) 0%, rgba(255, 99, 0, 0.3) 100%);
+            z-index: -1;
+        }
+        
+        .about-hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            color: white;
+            transform-style: preserve-3d;
+        }
+        
+        .about-hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* About Highlight Section */
+        .about-highlight {
+            background: linear-gradient(90deg, var(--primary-light), var(--secondary-light));
+            border-left: 6px solid var(--primary);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin: 3rem auto;
+            max-width: 900px;
+            font-size: 1.15rem;
+            color: var(--dark);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-highlight strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Fun Facts Section */
+        .fun-facts {
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fun-fact-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+        
+        .fun-fact {
+            font-size: 1.5rem;
+            color: var(--dark);
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+        
+        .fun-facts div p {
+            color: #555;
+            font-size: 1rem;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0);}
+            50% { transform: translateY(-10px);}
+        }
+        
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.2rem;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        /* Why Choose Us Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            margin-top: 0;
+            padding-top: 0;
+            perspective: 1000px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            transform-style: preserve-3d;
+            z-index: 1;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            z-index: 2;
+        }
+        
+        .service-icon {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 2rem auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-icon i {
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+        
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 50%;
+            z-index: 1;
+            transform: scale(1);
+            transition: var(--transition);
+        }
+        
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            width: 110%;
+            height: 110%;
+            border: 2px dashed var(--primary);
+            border-radius: 50%;
+            z-index: 0;
+            animation: spin 20s linear infinite;
+            opacity: 0.5;
+        }
+        
+        .service-card:hover .service-icon i {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .service-card:hover .service-icon::before {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 0 2rem 2.5rem;
+            text-align: center;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .service-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+        }
+        
+        /* CTA Section */
+        .about-contact-cta {
+            background: linear-gradient(135deg, var(--secondary-light), var(--primary-light));
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            max-width: 700px;
+            margin: 4rem auto;
+            padding: 3rem;
+            text-align: center;
+            font-size: 1.15rem;
+            color: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-contact-cta .cta-button {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            padding: 0.8rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .about-contact-cta .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .about-contact-cta .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-contact-cta .cta-button:hover::before {
+            opacity: 1;
+        }
+        
+        .about-contact-cta .contact-phone {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+        
+        .about-contact-cta .contact-email {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .team-card {
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .team-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--primary-light);
+            transition: var(--transition);
+        }
+        
+        .team-card:hover img {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .team-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .team-card p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+         footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            background: linear-gradient(to right, var(--primary), #ff8c00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .footer-about p {
+            color: #bbb;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+            color: #bbb;
+            font-size: 1rem;
+        }
+        
+        .footer-contact i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 4rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+       
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: var(--shadow);
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .about-hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .fun-facts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 2rem;
+                box-shadow: var(--shadow);
+                clip-path: circle(0% at 100% 0%);
+                transition: clip-path 0.7s ease;
+                z-index: 999;
+            }
+            
+            nav.active {
+                clip-path: circle(150% at 100% 0%);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            nav a {
+                color: var(--dark);
+                font-size: 1.2rem;
+            }
+            
+            .about-hero {
+                min-height: 400px;
+                height: 50vh;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+                
+            }
+            
+            .section-title p {
+                font-size: 1rem;
+                padding-left:2% ;
+                padding-right: 2%;
+                padding-bottom: 0px;
+            }
+            
+            .fun-facts {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 0 1.5rem;
+            }
+            
+            .logo-text {
+                font-size: 1.3rem;
+            }
+            
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-hero p {
+                font-size: 1rem;
+            }
+            
+            .about-highlight {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title p {
+                font-size: 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-contact-cta {
+                padding: 2rem 1.5rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.svg" alt="Gurunanak Relocation Logo" class="logo-image">
+                <div class="logo-text">Gurunanak <span>Relocation</span></div>
+            </a>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services-gn">Services</a></li>
+                    <li><a href="AboutUs.html" style="color: var(--primary);">About Us</a></li>
+                    <li><a href="Contactus.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-bg"></div>
+        <div class="about-hero-overlay"></div>
+        <div class="about-hero-content">
+            <h1>About Gurunanak Relocation</h1>
+            <p>Your trusted partner for seamless, secure, and stress-free moving experiences in Ahmedabad and across India.</p>
+        </div>
+    </section>
+    
+    <!-- About Highlight Section -->
+    <section class="about-highlight">
+        <strong>Gurunanak Relocation</strong> was established in <strong>2021</strong> and has been in the moving business since <strong>14 April 2021</strong>. We are proud to provide a high standard of moving services in <strong>Ahmedabad (GJ)</strong> and across India. Our experienced team ensures every move is handled with care, professionalism, and efficiency.
+    </section>
+    <!-- Who We Are Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Who We Are</h2>
+            <p>
+                Gurunanak Relocation is a trusted name in the relocation industry, offering reliable and efficient moving solutions for homes and businesses. With a commitment to quality and customer satisfaction, we have quickly become a preferred choice for clients in Ahmedabad and throughout India.
+            </p>
+        </div>
+    </section>
+    <style>
+    /* Mission & Vision Section */
+    .mission-vision {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 4rem;
+        max-width: 1400px;
+        margin: 6rem auto;
+        margin-bottom: 40px;
+        margin-top:10px;
+        padding: 0 2rem;
+    }
+    
+    .mission-card, .vision-card {
+        background: white;
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 1;
+    }
+    
+    .mission-card:hover, .vision-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .mission-card::before, .vision-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(90deg, #ff6300, #6a11cb);
+    }
+    
+    .mission-card h3, .vision-card h3 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: #1a1a1a;
+        position: relative;
+        display: inline-block;
+        font-weight: 700;
+    }
+    
+    .mission-card h3::after, .vision-card h3::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6300, #6a11cb);
+        border-radius: 2px;
+    }
+    
+    .mission-card p, .vision-card p {
+        color: #555;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+    
+    .card-icon {
+        font-size: 2.15rem;
+        margin-right: 4%;
+        background: linear-gradient(135deg, #ff6300, #6a11cb);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+    }
+    
+    .mission-card::after, .vision-card::after {
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        right: -50px;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: rgba(106, 17, 203, 0.05);
+        z-index: -1;
+        transition: all 0.4s ease;
+    }
+    
+    .mission-card:hover::after, .vision-card:hover::after {
+        transform: scale(1.5);
+        opacity: 0.1;
+    }
+    
+    @media (max-width: 768px) {
+        .mission-vision {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            
+        }
+        
+        .mission-card, .vision-card {
+            padding: 1rem;
+            
+            font-size: 0.2rem;
+            line-height: normal;
+        }
+        .card-icon{
+            display: none;
+        }
+        .mission-card p, .vision-card p {
+        color: #555;
+        font-size: 0.9rem;
+        line-height: normal;
+        
+    }
+    }
+</style>
+
+<!-- Mission & Vision Section -->
+<section class="container">
+    <div class="mission-vision">
+        <div class="mission-card">
+            <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+            </div>
+            <h3>Our Mission</h3>
+            <p>To provide exceptional relocation services that exceed customer expectations through professionalism, reliability, and attention to detail. We strive to make every move a seamless and stress-free experience by combining our expertise with personalized care.</p>
+            <p>Our team is dedicated to continuous improvement, ensuring we deliver innovative solutions tailored to each client's unique needs.</p>
+        </div>
+        <div class="vision-card">
+            <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 8v4l3 3"></path>
+                </svg>
+            </div>
+            <h3>Our Vision</h3>
+            <p>To become the most trusted relocation service provider in India by setting new standards in the industry. We aim to expand our reach while maintaining the highest levels of service quality and customer satisfaction.</p>
+            <p>Through technology and human expertise, we envision transforming the moving experience into something people look forward to.</p>
+        </div>
+    </div>
+</section>
+    
+    
+    <!-- Why Choose Us Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Why Choose Us?</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="service-content">
+                    <h3>Safe & Secure</h3>
+                    <p>Your belongings are handled with utmost care and protected throughout the move.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-clock"></i></div>
+                <div class="service-content">
+                    <h3>Timely Delivery</h3>
+                    <p>We value your time and ensure prompt pickup and delivery for every relocation.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-users"></i></div>
+                <div class="service-content">
+                    <h3>Experienced Team</h3>
+                    <p>Our skilled professionals are trained to handle all types of moves, big or small.</p>
+                </div>
+            </div>
+          
+        </div>
+    </section>
+    
+    <!-- Fun Facts Section -->
+    <section class="fun-facts">
+        <div>
+            <div class="fun-fact-icon"><i class="fas fa-truck-moving"></i></div>
+            <div class="fun-fact">1000+ Moves Completed</div>
+            <p>Across India</p>
+        </div>
+        <div>
+            <div class="fun-fact-icon"><i class="fas fa-award"></i></div>
+            <div class="fun-fact">98% Customer Satisfaction</div>
+            <p>Rated by our clients</p>
+        </div>
+        
+        <div>
+            <div class="fun-fact-icon"><i class="fas fa-box-open"></i></div>
+            <div class="fun-fact">50,000+ Boxes Packed</div>
+            <p>Handled with care</p>
+        </div>
+    </section>
+    
+    
+    
+    <!-- CTA Section -->
+    <section class="about-contact-cta">
+        <div>
+            Gurunanak Relocation would greatly appreciate your inquiry for any relocations you may have to any part of India.<br>
+            If you require <strong>quality</strong>, <strong>competitive rates</strong>, and a <strong>smooth relocation service</strong> in Ahmedabad or across India, please do not hesitate to contact us and request a quotation.<br>
+            <span class="contact-phone"><i class="fas fa-phone"></i> +91 98765 43210</span><br>
+            <span class="contact-email"><i class="fas fa-envelope"></i> hello@gnrelocation.in</span>
+        </div>
+        <button class="cta-button" onclick="window.location.href='Contactus.html'"><i class="fas fa-paper-plane"></i> Request a Quote</button>
+        <div style="margin-top:1.5rem;color:var(--secondary);font-weight:500;">
+            Rest assured of our best service at all times.
+        </div>
+    </section>
+    
+    
+    <!-- Footer -->
+  <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">Gurunanak <span>Relocation</span></div>
+                <p>Providing premium moving services across India since 2021. Your trusted partner for seamless relocations.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Our Services</h3>
+                <ul>
+                <li><a href="#">Residential Moving</a></li> <li><a href="#">Commercial Moving</a></li> <li><a href="#">Packing Services</a></li> <li><a href="#">Storage Solutions</a></li> <li><a href="#">International Relocation</a></li> </ul> </div> <div class="footer-contact"> <h3>Contact Us</h3> <p><i class="fas fa-map-marker-alt"></i> 123 Relocation Avenue, Mumbai, India</p> <p><i class="fas fa-phone"></i> +91 98765 43210</p> <p><i class="fas fa-envelope"></i> hello@gnrelocation.in</p> <p><i class="fas fa-clock"></i> Mon-Sun: 7:00 AM - 9:00 PM</p> </div> </div> <div class="footer-bottom"> <p>&copy; 2023 Gurunanak Relocation. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p> </div> 
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const nav = document.getElementById('nav');
+        
+        mobileMenu.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenu.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

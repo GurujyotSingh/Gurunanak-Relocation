@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurunanak Relocation - Premium Moving Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="head.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Langar&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6300;
+            --primary-light: rgba(255, 99, 0, 0.1);
+            --secondary: #5c0fd9;
+            --secondary-light: rgba(92, 15, 217, 0.1);
+            --dark: #1a1a1a;
+            --dark-80: rgba(26, 26, 26, 0.8);
+            --light: #f8f9fa;
+            --light-90: rgba(248, 249, 250, 0.9);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --border-radius: 12px;
+            --border-radius-lg: 24px;
+        }
+       
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+        
+        /* Header - Glass Morphism Effect */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: var(--shadow);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        header.scrolled {
+            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            transform: translateY(-3px);
+        }
+        
+        .logo-image {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Hero Section - 3D Parallax Effect */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            z-index: -2;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(92, 15, 217, 0.3) 0%, rgba(255, 99, 0, 0.3) 100%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            transform-style: preserve-3d;
+        }
+        
+        .hero-text {
+            max-width: 700px;
+            transform: translateZ(50px);
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .secondary-button {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+        
+        .secondary-button:hover {
+            background: white;
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        /* Floating Furniture Animation */
+        .furniture-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .furniture-item {
+            position: absolute;
+            font-size: 2.5rem;
+            color: white;
+            opacity: 0.8;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+            animation: float 8s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-40px) rotate(5deg);
+            }
+        }
+        
+        /* Gradient Orbs Animation */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0.4;
+            animation: pulse 12s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+        
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            top: 20%;
+            left: 10%;
+        }
+        
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 0.6;
+            }
+        }
+        
+        /* Services Section - 3D Card Hover Effect */
+        .services {
+            padding: 1rem 1rem;
+            background-color: white;
+            
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            transform-style: preserve-3d;
+            z-index: 1;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            z-index: 2;
+        }
+        .service-icon {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-icon i {
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+        
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 50%;
+            z-index: 1;
+            transform: scale(1);
+            transition: var(--transition);
+        }
+        
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            width: 110%;
+            height: 110%;
+            border: 2px dashed var(--primary);
+            border-radius: 50%;
+            z-index: 0;
+            animation: spin 20s linear infinite;
+            opacity: 0.5;
+        }
+        
+        .service-card:hover .service-icon i {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .service-card:hover .service-icon::before {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 2.5rem;
+            text-align: center;
+        }
+        
+        .service-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .service-content p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .service-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .service-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        
+        /* CTA Section - Animated Gradient Background */
+        .cta-section {
+            padding: 8rem 2rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, var(--secondary), var(--primary), var(--secondary), var(--primary));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            z-index: -2;
+        }
+        
+        .cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+        
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer - Multi-column Layout */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            background: linear-gradient(to right, var(--primary), #ff8c00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .footer-about p {
+            color: #bbb;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+            color: #bbb;
+            font-size: 1rem;
+        }
+        
+        .footer-contact i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 4rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: var(--shadow);
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+                padding: 10px;
+            }                   
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 2rem;
+                box-shadow: var(--shadow);
+                clip-path: circle(0% at 100% 0%);
+                transition: clip-path 0.7s ease;
+                z-index: 999;
+            }
+            
+            nav.active {
+                clip-path: circle(150% at 100% 0%);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            nav a {
+                color: var(--dark);
+                font-size: 1.2rem;
+            }
+            
+            .hero {
+                min-height: 700px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 3.2rem;
+            }
+            
+            .services {
+                padding: 5rem 2rem;
+            }
+            
+           
+            .cta-section {
+                padding: 5rem 2rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2.5rem;
+                
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 0 1.5rem;
+            }
+            
+            .logo-text {
+                font-size: 1.3rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title p {
+                font-size: 1rem;
+                padding-top: 10px;
+            }
+            
+            .services {
+                padding: 1.5rem 0.5rem !important;
+            }
+            .section-title {
+                margin-bottom: 2rem !important;
+            }
+            .section-title h2 {
+                /* font-size: 1.2rem !important; */
+                margin-bottom: 0.7rem !important;
+            }
+            .section-title p {
+                font-size: 0.95rem !important;
+                margin-bottom: 0.7rem !important;
+            }
+            .services-grid {
+                display: flex !important;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                gap: 0.7rem;
+                padding-bottom: 1rem;
+                /* Show scrollbar for horizontal scroll */
+                scrollbar-width: thin;
+                scrollbar-color: var(--primary) var(--light);
+            }
+            .service-card {
+                min-width: 75vw;
+                max-width: 80vw;
+                flex: 0 0 auto;
+                padding: 1rem 0.5rem !important;
+            }
+            .service-content {
+                padding: 1rem 0.5rem !important;
+            }
+            .service-content h3 {
+                font-size: 1.1rem !important;
+                margin-bottom: 0.7rem !important;
+            }
+            .service-content p {
+                font-size: 0.95rem !important;
+                margin-bottom: 1rem !important;
+            }
+            .service-icon {
+                width: 60px !important;
+                height: 60px !important;
+                margin-bottom: 1rem !important;
+            }
+            .service-icon i {
+                font-size: 1.7rem !important;
+            }
+            .service-button {
+                padding: 0.5rem 1.2rem !important;
+                font-size: 0.95rem !important;
+            }
+           
+        }
+        
+        /* Simple horizontal slider for services section (mobile only) */
+        @media (max-width: 576px) {
+            .service-slider-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="logo.svg" alt="Gurunanak Relocation Logo" class="logo-image">
+                <div class="logo-text">Gurunanak <span>Relocation
+</span></div>
+            </a>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html" active>Home</a></li>
+                    <li><a href="#services-gn">Services</a></li>
+                    <li><a href="AboutUs.html">About Us</a></li>
+                    
+                    <li><a href="Contactus.html">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Removed Get a Quote button -->
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        
+      
+        <!-- Gradient Orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Premium Moving Services With Care</h1>
+                <p>Experience seamless relocation with our professional team. We handle everything from packing to transportation with precision and care.</p>
+                <div class="hero-buttons">
+                    <a href="Contactus.html"><button class="cta-button">Book Now</button></a>
+                   <a href="AboutUs.html"><button class="secondary-button">Learn More</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section  class="services">
+    <div class="section-title">
+        <h2 id="services-gn" >Our Services</h2>
+        <p>Comprehensive moving solutions tailored to your specific needs and requirements</p>
+    </div>
+    <!-- Removed slider nav bar -->
+    <div class="services-grid" id="servicesGrid">
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-boxes"></i>
+                </div>
+                <h3>Professional Packing</h3>
+                <p>Our experts use high-quality materials and techniques to ensure your belongings are packed securely for transport.</p>
+                
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Residential Relocation</h3>
+                <p>Our Residential Relocation services are designed to ensure smooth and stress-free moving experience for your home, covering everything from packing to unpacking.</p>
+                
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Business Relocation</h3>
+                <p>Our logistics services for business relocations are both efficient and dependable, guaranteeing the safe and prompt delivery of your goods.</p>
+                
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3>Vehicle Relocation</h3>
+                <p>Our expert handling, secure transport, and real-time tracking ensure your vehicle reaches its destination damage-free and on time.</p>
+                
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-couch"></i>
+                </div>
+                <h3>Furniture Relocation</h3>
+                <p>Relocating furniture? Our experienced team excels in careful and efficient furniture moving. Allow us to take care of the heavy lifting for you.</p>
+                
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <h3>Air Shipments</h3>
+                <p>Ensure swift, secure and seamless air cargo delivery worldwide. With expert handling and real-time tracking, your goods arrive on time, every time.</p>
+                
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-warehouse"></i>
+                </div>
+                <h3>Reliable Storage Solutions</h3>
+                <p>Looking for temporary storage for your items? Our secure storage solutions provide a safe and easily accessible option.</p>
+                
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Fine Art Relocation</h3>
+                <p>Our tailored crating, climate-controlled transportation, and professional handling guarantee that your valuables reach their destination perfectly and without any damage.</p>
+                
+            </div>
+        </div>
+    </div>
+</section>
+    <style>
+        /* Testimonials Section - Enhanced */
+.testimonials {
+    padding: 6rem 1rem;
+    background: linear-gradient(135deg, var(--secondary-light) 0%, var(--primary-light) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-slider-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+.testimonial-slider-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    will-change: transform;
+    width: 100%;
+}
+
+.testimonial-card {
+    min-width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 1;
+    background: #fff;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 2.5rem;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.testimonial-text::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -0.5rem;
+    font-size: 3rem;
+    color: var(--primary);
+    opacity: 0.3;
+    line-height: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-light);
+}
+
+.author-info h4 {
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+}
+
+.author-info p {
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.testimonial-slider-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1.5rem;
+}
+
+.testimonial-slider-arrow {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.testimonial-slider-arrow:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.testimonial-dots {
+    display: flex;
+    gap: 0.8rem;
+    margin: 0 1rem;
+}
+
+.testimonial-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.testimonial-dot.active {
+    background: var(--primary);
+    transform: scale(1.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .testimonial-card {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials {
+        padding: 4rem 0.5rem;
+    }
+    
+    .testimonial-slider-container {
+        padding: 0 1rem;
+    }
+    
+    .testimonial-card {
+        padding: 1.5rem;
+        margin: 0 0.3rem;
+    }
+    
+    .testimonial-text {
+        font-size: 1rem;
+        padding-left: 1rem;
+    }
+    
+    .testimonial-text::before {
+        font-size: 2.5rem;
+    }
+    
+    .author-avatar {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .testimonial-slider-arrow {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .testimonial-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .testimonials {
+        padding: 3rem 0.3rem;
+    }
+    
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-text {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .author-avatar {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .author-info h4 {
+        font-size: 1rem;
+    }
+    
+    .testimonial-slider-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+    
+    .testimonial-dots {
+        gap: 0.5rem;
+    }
+    
+    .testimonial-dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+    </style>
+<section class="testimonials" aria-label="Client testimonials">
+    <div class="section-title">
+        <h2>Client Testimonials</h2>
+        <p>Hear what our satisfied customers have to say about their moving experience</p>
+    </div>
+    
+    <div class="testimonial-slider-container">
+        <div class="testimonial-slider-track" id="testimonialSliderTrack">
+            <div class="testimonial-card" aria-hidden="false">
+                <div class="testimonial-text">
+                  It was a delightful experience again. I had no second thought choosing Gurunanak Relocation because of the commitment, professional behaviour, and quality service.
+Thank you for maintaining the trust level and keeping up the good work.
+100% recommended to others.
+One suggestion, please try open your service to other cities as well.
+
+                </div>
+                <div class="testimonial-author">
+                   
+                    <div class="author-info">
+                        <h4>Vijayendra Singh (Ahmedabad to Raipur)</h4>
+                        <p>Vehicle Relocation</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card" aria-hidden="true">
+                <div class="testimonial-text">
+                 I recently transported my bike from Bhopal to Pune and had a great experience. The pickup was on time, and the bike arrived as promised and in good condition. Clear communication and professionalism gave me confidence in the service. The team managed the relocation
+efficiently with no hidden charges. I appreciate their punctuality, reliability, and customer-friendly approach.
+Highly recommended for safe and timely vehicle transport.
+
+                </div>
+                <div class="testimonial-author">
+                 
+                    <div class="author-info">
+                        <h4>Abuzer Holawala (Bhopal to Pune)</h4>
+                        <p>Vehicle Relocation</p>
+                    </div>
+                </div>
+            </div>
+               <div class="testimonial-card" aria-hidden="true">
+                <div class="testimonial-text">
+                 I recently transported my bike from Bhopal to Pune and had a great experience. The pickup was on time, and the bike arrived as promised and in good condition. Clear communication and professionalism gave me confidence in the service. The team managed the relocation
+efficiently with no hidden charges. I appreciate their punctuality, reliability, and customer-friendly approach.
+Highly recommended for safe and timely vehicle transport.
+
+                </div>
+                <div class="testimonial-author">
+                 
+                    <div class="author-info">
+                        <h4>Abuzer Holawala (Bhopal to Pune)</h4>
+                        <p>Vehicle Relocation</p>
+                    </div>
+                </div>
+            </div>
+               <div class="testimonial-card" aria-hidden="true">
+                <div class="testimonial-text">
+                 I recently transported my bike from Bhopal to Pune and had a great experience. The pickup was on time, and the bike arrived as promised and in good condition. Clear communication and professionalism gave me confidence in the service. The team managed the relocation
+efficiently with no hidden charges. I appreciate their punctuality, reliability, and customer-friendly approach.
+Highly recommended for safe and timely vehicle transport.
+
+                </div>
+                <div class="testimonial-author">
+                 
+                    <div class="author-info">
+                        <h4>Abuzer Holawala (Bhopal to Pune)</h4>
+                        <p>Vehicle Relocation</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card" aria-hidden="true">
+                <div class="testimonial-text">
+                    Moving our family of five could have been a nightmare, but Gurunanak made it easy. Their packing team was so careful with our kids' belongings and heirlooms. Everything arrived perfectly, and they even helped with furniture assembly.
+                </div>
+                <div class="testimonial-author">
+                 
+                    <div class="author-info">
+                        <h4>Neha Kapoor</h4>
+                        <p>Family Relocation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="testimonial-slider-nav">
+            <button class="testimonial-slider-arrow" id="testimonialPrev" aria-label="Previous testimonial">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="testimonial-dots" id="testimonialDots"></div>
+            <button class="testimonial-slider-arrow" id="testimonialNext" aria-label="Next testimonial">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+    <script>
+        // Enhanced Testimonial Slider Functionality
+(function() {
+    const track = document.getElementById('testimonialSliderTrack');
+    if (!track) return;
+    
+    const cards = Array.from(track.children);
+    const prevBtn = document.getElementById('testimonialPrev');
+    const nextBtn = document.getElementById('testimonialNext');
+    const dotsContainer = document.getElementById('testimonialDots');
+    
+    let currentIndex = 0;
+    let autoSlideInterval;
+    const slideDuration = 5000; // 5 seconds
+    
+    // Create dot indicators
+    cards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('testimonial-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+    
+    const dots = Array.from(dotsContainer.children);
+    
+    // Update slider position
+    function updateSlider() {
+        const cardWidth = cards[0].offsetWidth;
+        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        
+        // Update ARIA attributes
+        cards.forEach((card, index) => {
+            card.setAttribute('aria-hidden', index !== currentIndex);
+        });
+        
+        // Update dot indicators
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+    
+    // Go to specific slide
+    function goToSlide(index) {
+        currentIndex = (index + cards.length) % cards.length;
+        updateSlider();
+        resetAutoSlide();
+    }
+    
+    // Next slide
+    function nextSlide() {
+        goToSlide(currentIndex + 1);
+    }
+    
+    // Previous slide
+    function prevSlide() {
+        goToSlide(currentIndex - 1);
+    }
+    
+    // Auto slide functionality
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, slideDuration);
+    }
+    
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+    
+    // Event listeners
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoSlide();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoSlide();
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+            resetAutoSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+            resetAutoSlide();
+        }
+    });
+    
+    // Pause on hover
+    track.addEventListener('mouseenter', () => {
+        clearInterval(autoSlideInterval);
+    });
+    
+    track.addEventListener('mouseleave', startAutoSlide);
+    
+    // Handle window resize
+    window.addEventListener('resize', updateSlider);
+    
+    // Initialize
+    updateSlider();
+    startAutoSlide();
+})();
+    </script>
+</section>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg"></div>
+        <div class="cta-overlay"></div>
+        <h2>Ready for a Stress-Free Move?</h2>
+        <p>Get a free, no-obligation quote today and let us handle your relocation with care and professionalism.</p>
+       <a href="Contactus.html">
+        <button class="cta-button pulse">Get Your Quote</button>
+       </a>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">Gurunanak <span>Relocation</span></div>
+                <p>Providing premium moving services across India since 2021. Your trusted partner for seamless relocations.</p>
+                <div class="social-links">
+                   
+                    <a href="https://www.instagram.com/gurunanakrelocation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                    <a href="https://in.linkedin.com/company/gurunanak-relocation"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Our Services</h3>
+                <ul>
+                <li><a>Residential Moving</a></li> <li>Commercial Moving</a></li> <li>Packing Services</a></li> <li>Storage Solutions</a></li> <li>International Relocation</a></li> </ul> </div> <div class="footer-contact"> <h3>Contact Us</h3> <p><i class="fas fa-map-marker-alt"></i> B/09, 1st Floor, Hari Darshan Shopping Center, Mony Hotel Rd, Isanpur, Ahmedabad, Gujarat 382405</p> <p><i class="fas fa-phone"></i> +91 99136 09060</p> <p><i class="fas fa-envelope"></i> hello@gnrelocation.in</p> <p><i class="fas fa-clock"></i> Mon-Sun: 10:00 AM - 9:00 PM</p> </div> </div> <div class="footer-bottom"> <p>&copy; 2025 Gurunanak Relocation. All Rights Reserved. </div> 
+    </footer>
+<!-- Back to Top Button -->
+<div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+    // Mobile Menu Toggle
+    const mobileMenu = document.getElementById('mobileMenu');
+    const nav = document.getElementById('nav');
+    
+    mobileMenu.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        mobileMenu.innerHTML = nav.classList.contains('active') ? 
+            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+
+    // Header Scroll Effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('active');
+        } else {
+            backToTop.classList.remove('active');
+        }
+    });
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Simple horizontal slider for services section (mobile only)
+    function isMobile() {
+        return window.innerWidth <= 576;
+    }
+    function updateServiceSliderNav() {
+        const nav = document.getElementById('serviceSliderNav');
+        nav.style.display = isMobile() ? 'flex' : 'none';
+    }
+    updateServiceSliderNav();
+    window.addEventListener('resize', updateServiceSliderNav);
+
+    const servicesGrid = document.getElementById('servicesGrid');
+    const serviceCards = servicesGrid ? Array.from(servicesGrid.children) : [];
+    let serviceIndex = 0;
+
+    function scrollToService(idx) {
+        if (!isMobile() || !serviceCards.length) return;
+        serviceIndex = Math.max(0, Math.min(idx, serviceCards.length - 1));
+        serviceCards[serviceIndex].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+    }
+
+    document.getElementById('servicePrev').addEventListener('click', () => {
+        scrollToService(serviceIndex - 1);
+    });
+    document.getElementById('serviceNext').addEventListener('click', () => {
+        scrollToService(serviceIndex + 1);
+    });
+
+    // Update index on scroll
+    if (servicesGrid) {
+        servicesGrid.addEventListener('scroll', () => {
+            if (!isMobile()) return;
+            let minDiff = Infinity;
+            let idx = 0;
+            serviceCards.forEach((card, i) => {
+                const rect = card.getBoundingClientRect();
+                const diff = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    idx = i;
+                }
+            });
+            serviceIndex = idx;
+        });
+    }
+
+    ;
+</script>
+</body>
+</html>

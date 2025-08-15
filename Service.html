@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="head.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Langar&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Same head content as index.html -->
+    <title>Professional Packing Services | Gurunanak Relocation</title>
+    <!-- Add any service-specific meta tags -->
+</head>
+<style>
+        /* Service Page Specific Styles */
+        .service-hero {
+            height: 70vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        
+        .service-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+        
+        .service-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(92, 15, 217, 0.7) 0%, rgba(255, 99, 0, 0.7) 100%);
+            z-index: -1;
+        }
+        
+        .service-hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            opacity: 0.9;
+        }
+        
+        .breadcrumb {
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+        
+        /* Service Details */
+        .service-details {
+            padding: 6rem 2rem;
+            background-color: white;
+        }
+        
+        .service-details-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .service-description h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .service-description h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+        
+        .service-description p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .feature-card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+        
+        /* Process Steps */
+        .service-process {
+            margin-top: 6rem;
+        }
+        
+        .service-process h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .service-process h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            counter-reset: step-counter;
+        }
+        
+        .process-step {
+            position: relative;
+            padding-left: 90px;
+            min-height: 80px;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            counter-increment: step-counter;
+        }
+        
+        .step-number::before {
+            content: counter(step-counter);
+        }
+        
+        .step-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+        
+        .step-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Specialized Packing */
+        .specialized-packing {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .specialized-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+        }
+        
+        .specialized-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .specialized-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .specialized-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .specialized-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .specialized-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Pricing Section */
+        .pricing-section {
+            padding: 6rem 2rem;
+            background: white;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 4rem auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 2px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            text-align: center;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .price::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .features {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+        
+        .features li {
+            margin-bottom: 1rem;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .features i {
+            color: var(--primary);
+            margin-top: 3px;
+        }
+        
+        .pricing-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .pricing-button:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .pricing-note {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Service Testimonials */
+        .service-testimonials {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--secondary-light) 0%, var(--primary-light) 100%);
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 4rem auto 0;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .rating {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-content p {
+            font-style: italic;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .testimonial-content p::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.2;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .author-location {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        
+        /* Service CTA */
+        .service-cta {
+            padding: 6rem 2rem;
+            background: white;
+        }
+        
+        .cta-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .phone-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .phone-button:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .secondary-button:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .cta-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .cta-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .cta-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* FAQ Section */
+        .service-faq {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 4rem auto 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: white;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        
+        .faq-question i {
+            transition: var(--transition);
+        }
+        
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 2rem;
+            background: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer p {
+            padding: 1.5rem 0;
+            color: #555;
+            line-height: 1.8;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .service-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .cta-container {
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .service-hero {
+                height: 60vh;
+                min-height: 500px;
+            }
+            
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .service-hero p {
+                font-size: 1.2rem;
+            }
+            
+            .service-description h2,
+            .service-process h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-image {
+                order: -1;
+                max-width: 600px;
+                margin: 0 auto 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .service-hero {
+                height: 50vh;
+                min-height: 400px;
+                margin-top: 70px;
+            }
+            
+            .service-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .service-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .features-grid,
+            .specialized-grid,
+            .testimonial-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-cards {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .service-hero {
+                height: 70vh;
+            }
+            
+            .service-hero-content {
+                padding: 0 1.5rem;
+            }
+            
+            .service-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .service-details,
+            .specialized-packing,
+            .pricing-section,
+            .service-testimonials,
+            .service-cta,
+            .service-faq {
+                padding: 4rem 1rem;
+            }
+            
+            .process-step {
+                padding-left: 70px;
+            }
+            
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+     :root {
+            --primary: #ff6300;
+            --primary-light: rgba(255, 99, 0, 0.1);
+            --secondary: #5c0fd9;
+            --secondary-light: rgba(92, 15, 217, 0.1);
+            --dark: #1a1a1a;
+            --dark-80: rgba(26, 26, 26, 0.8);
+            --light: #f8f9fa;
+            --light-90: rgba(248, 249, 250, 0.9);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --border-radius: 12px;
+            --border-radius-lg: 24px;
+        }
+       
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+        
+        /* Header - Glass Morphism Effect */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: var(--shadow);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        header.scrolled {
+            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            transform: translateY(-3px);
+        }
+        
+        .logo-image {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+       
+    </style>
+<body>
+    <!-- Header (same as index.html) -->
+  <header id="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="logo.svg" alt="Gurunanak Relocation Logo" class="logo-image">
+                <div class="logo-text">Gurunanak <span>Relocation
+</span></div>
+            </a>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html" active>Home</a></li>
+                    <li><a href="#services-gn">Services</a></li>
+                    <li><a href="AboutUs.html">About Us</a></li>
+                    
+                    <li><a href="Contactus.html">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Removed Get a Quote button -->
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    
+
+    <!-- Service Hero Section -->
+    
+    <!-- Service Details Section -->
+    <section class="service-details">
+        <div class="service-details-container">
+            <div class="service-description">
+                <br><br>
+                <h2>Our Services</h2>
+                <p>Our professional packing service is designed to take the stress out of your move. We use high-quality materials and proven techniques to ensure all your items, from fragile glassware to bulky furniture, are packed securely for transport.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <h3>Custom Packing Materials</h3>
+                        <p>We use industry-grade packing materials including double-walled boxes, bubble wrap, and specialty containers for fragile items.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <h3>Inventory Management</h3>
+                        <p>Every item is cataloged and labeled for easy identification and unpacking at your new location.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Fragile Item Protection</h3>
+                        <p>Special care for glassware, electronics, artwork, and other delicate items with custom crating when needed.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Efficient Process</h3>
+                        <p>Our trained team can pack an average home in 1-2 days, minimizing disruption to your schedule.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-process">
+                <h2>Our Packing Process</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Initial Assessment</h3>
+                            <p>We evaluate your packing needs and provide a detailed estimate.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Material Delivery</h3>
+                            <p>All packing materials are delivered to your location before packing day.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Professional Packing</h3>
+                            <p>Our team systematically packs your belongings room by room.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Quality Check</h3>
+                            <p>Each packed item is inspected before loading onto the truck.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialized Packing Section -->
+    <section class="specialized-packing">
+        <div class="section-title">
+            <h2>Specialized Packing Services</h2>
+            <p>We offer tailored packing solutions for your most valuable items</p>
+        </div>
+        
+        <div class="specialized-grid">
+            <div class="specialized-card">
+                <div class="specialized-icon">
+                    <i class="fas fa-wine-glass-alt"></i>
+                </div>
+                <h3>Fine China & Glassware</h3>
+                <p>Custom compartmentalized boxes with extra cushioning to protect your delicate dinnerware.</p>
+            </div>
+            
+            <div class="specialized-card">
+                <div class="specialized-icon">
+                    <i class="fas fa-tv"></i>
+                </div>
+                <h3>Electronics</h3>
+                <p>Anti-static packing materials and original packaging when available for TVs and computers.</p>
+            </div>
+            
+            <div class="specialized-card">
+                <div class="specialized-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Artwork</h3>
+                <p>Custom crating and climate-controlled transport for paintings and sculptures.</p>
+            </div>
+            
+            <div class="specialized-card">
+                <div class="specialized-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3>Wardrobe</h3>
+                <p>Clothing packed in wardrobe boxes to minimize wrinkling and keep items organized.</p>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Service CTA -->
+    <section class="service-cta">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Ready to Experience Stress-Free Packing?</h2>
+                <p>Let our professional packing team handle your belongings with care and precision.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+919913609060" class="cta-button phone-button">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="Contactus.html" class="cta-button secondary-button">Get a Quote</a>
+                </div>
+            </div>
+            <div class="cta-image">
+                <img src="packing-cta-image.jpg" alt="Professional packing team at work">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="service-faq">
+        <div class="section-title">
+            <h2>Packing Service FAQs</h2>
+            <p>Answers to common questions about our packing services</p>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    What items should I pack myself?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We recommend packing personal items like medications, important documents, jewelry, and other valuables yourself. For everything else, our team can handle it!</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    How far in advance should I book packing services?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We recommend booking at least 2 weeks in advance, especially during peak moving seasons (summer months and end of financial year). Last-minute bookings may be available but are subject to team availability.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do you provide packing materials if I pack myself?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! We offer packing material packages that include boxes, tape, bubble wrap, and other essentials. These can be delivered to your location before your move.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do you handle fragile items?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Fragile items receive special attention with extra cushioning, custom compartments, and clearly marked boxes. For extremely delicate or valuable items, we can create custom crates for maximum protection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer>
+        <!-- ... -->
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = button.nextElementSibling;
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.querySelector('.faq-question').classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
+                
+                // Toggle current FAQ
+                button.classList.toggle('active');
+                
+                if (button.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                } else {
+                    answer.style.maxHeight = null;
+                }
+            });
+        });
+        
+        // Initialize first FAQ as open
+        document.querySelector('.faq-question').classList.add('active');
+        document.querySelector('.faq-answer').style.maxHeight = document.querySelector('.faq-answer').scrollHeight + 'px';
+        
+        // Other scripts from index.html can be included here
+    </script>
+</body>
+</html>
