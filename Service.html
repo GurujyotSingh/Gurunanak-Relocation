@@ -231,87 +231,214 @@
         /* Service Details */
         .service-details {
             padding: 6rem 2rem;
+            margin-top: 2%;
             background-color: white;
         }
         
-        .service-details-container {
-            max-width: 1400px;
-            margin: 0 auto;
+       .service-description {
+            text-align: center;
+            margin-bottom: 50px;
         }
         
         .service-description h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--dark);
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
             position: relative;
-            padding-bottom: 15px;
+            display: inline-block;
         }
         
-        .service-description h2::after {
+        .service-description h2:after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100px;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            border-radius: 5px;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
         }
         
         .service-description p {
             font-size: 1.2rem;
             color: #555;
-            margin-bottom: 3rem;
+            max-width: 800px;
+            margin: 30px auto;
             line-height: 1.8;
         }
         
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin: 4rem 0;
+        /* Slider Styles */
+        .features-slider {
+            position: relative;
+            overflow: hidden;
+            padding: 30px 0;
+            margin: 0 auto;
+            max-width: 1400px;
+        }
+        
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
         .feature-card {
-            background: var(--light);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            flex: 0 0 calc(100% - 40px);
+            margin: 0 20px;
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            
+        }
+        
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-card:hover:before {
+            transform: scaleX(1);
         }
         
         .feature-icon {
-            width: 70px;
-            height: 70px;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 25px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
             color: white;
-            font-size: 1.8rem;
+            font-size: 32px;
+            
         }
         
         .feature-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
         
         .feature-card p {
-            font-size: 1rem;
             color: #666;
-            margin-bottom: 0;
-            line-height: 1.6;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
         
-        /* Process Steps */
+        /* Slider Controls */
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            gap: 20px;
+        }
+        
+        .slider-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slider-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Responsive Styles */
+        @media (min-width: 576px) {
+            .feature-card {
+                flex: 0 0 calc(50% - 40px);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .feature-card {
+                flex: 0 0 calc(25% - 40px);
+            }
+            
+            .slider-controls {
+                display: none;
+            }
+            
+            .features-slider {
+                overflow: visible;
+            }
+            
+            .slider-container {
+                transform: none !important;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                /* width: auto; */
+            }
+        }
+        
+        /* Animation for slider */
+        @keyframes fadeIn {
+            from { opacity: 0.4; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slider-container {
+            animation: fadeIn 0.8s ease;
+        }
+        
+        /* Auto-slide indicator */
+        .auto-slide-indicator {
+            height: 4px;
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 2px;
+            margin-top: 20px;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+            transition: width 5s linear;
+        }
+        
+        @media (max-width: 991px) {
+            .auto-slide-indicator {
+                display: block;
+            }
+        } /* Process Steps */
         .service-process {
             margin-top: 6rem;
         }
@@ -380,169 +507,7 @@
             line-height: 1.6;
         }
         
-        /* Specialized Packing */
-        .specialized-packing {
-            padding: 6rem 2rem;
-            background: var(--light);
-        }
         
-        .specialized-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            max-width: 1400px;
-            margin: 4rem auto 0;
-        }
-        
-        .specialized-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-        }
-        
-        .specialized-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .specialized-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: white;
-            font-size: 2rem;
-        }
-        
-        .specialized-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .specialized-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        /* Pricing Section */
-        .pricing-section {
-            padding: 6rem 2rem;
-            background: white;
-        }
-        
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 4rem auto;
-        }
-        
-        .pricing-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            border: 2px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .pricing-card.featured {
-            border: 2px solid var(--primary);
-            transform: scale(1.05);
-        }
-        
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        .pricing-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-            text-align: center;
-        }
-        
-        .price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: var(--primary);
-            position: relative;
-        }
-        
-        .price::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-        }
-        
-        .features {
-            list-style: none;
-            margin-bottom: 3rem;
-        }
-        
-        .features li {
-            margin-bottom: 1rem;
-            color: #555;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        
-        .features i {
-            color: var(--primary);
-            margin-top: 3px;
-        }
-        
-        .pricing-button {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .pricing-button:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-        
-        .pricing-note {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-        }
         
         /* Service Testimonials */
         .service-testimonials {
@@ -723,6 +688,7 @@
             .service-description h2,
             .service-process h2 {
                 font-size: 2rem;
+                margin-top: 10%;
             }
             
             .cta-container {
@@ -1122,7 +1088,7 @@
 <body>
    <header id="header">
         <div class="header-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <img src="logo.svg" alt="Gurunanak Relocation Logo" class="logo-image">
                 <div class="logo-text">Gurunanak <span>Relocation
 </span></div>
@@ -1147,12 +1113,12 @@
     <!-- Service Details Section -->
     <section class="service-details">
         <div class="service-details-container">
-            <div class="service-description">
-                <br><br>
-                <h2>Our Services</h2>
-                <p>Our professional packing service is designed to take the stress out of your move. We use high-quality materials and proven techniques to ensure all your items, from fragile glassware to bulky furniture, are packed securely for transport.</p>
-                
-                <div class="features-grid">
+        <div class="service-description">
+            <h2>Our Services</h2>
+            <p>Our professional packing service is designed to take the stress out of your move. We use high-quality materials and proven techniques to ensure all your items, from fragile glassware to bulky furniture, are packed securely for transport.</p>
+            
+            <div class="features-slider">
+                <div class="slider-container" id="slider-container">
                     <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-box-open"></i>
@@ -1177,16 +1143,118 @@
                         <p>Special care for glassware, electronics, artwork, and other delicate items with custom crating when needed.</p>
                     </div>
                     
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3>Efficient Process</h3>
-                        <p>Our trained team can pack an average home in 1-2 days, minimizing disruption to your schedule.</p>
-                    </div>
+                  
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn" id="next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="auto-slide-indicator">
+                    <div class="progress-bar" id="progress-bar"></div>
                 </div>
             </div>
+        </div>
+     </div>
+
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliderContainer = document.getElementById('slider-container');
+            const slides = document.querySelectorAll('.feature-card');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const progressBar = document.getElementById('progress-bar');
             
+            let currentIndex = 0;
+            let slidesPerView = getSlidesPerView();
+            let autoSlideInterval;
+            
+            // Initialize slider
+            updateSlider();
+            startAutoSlide();
+            
+            // Event listeners for buttons
+            prevBtn.addEventListener('click', () => {
+                resetAutoSlide();
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = slides.length - slidesPerView;
+                }
+                updateSlider();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                resetAutoSlide();
+                if (currentIndex < slides.length - slidesPerView) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                updateSlider();
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                slidesPerView = getSlidesPerView();
+                updateSlider();
+                resetAutoSlide();
+            });
+            
+            function getSlidesPerView() {
+                if (window.innerWidth >= 992) return 4; // Desktop - show all
+                if (window.innerWidth >= 576) return 2; // Tablet - show 2
+                return 1; // Mobile - show 1
+            }
+            
+            function updateSlider() {
+                const slideWidth = slides[0].offsetWidth + 40; // width + margin
+                sliderContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                
+                // Hide controls on desktop
+                const controls = document.querySelector('.slider-controls');
+                const indicator = document.querySelector('.auto-slide-indicator');
+                if (window.innerWidth >= 992) {
+                    controls.style.display = 'none';
+                    indicator.style.display = 'none';
+                } else {
+                    controls.style.display = 'flex';
+                    indicator.style.display = 'block';
+                }
+            }
+            
+            function startAutoSlide() {
+                if (window.innerWidth >= 992) return; // No auto-slide on desktop
+                
+                progressBar.style.width = '0%';
+                // Force reflow
+                void progressBar.offsetWidth;
+                progressBar.style.width = '100%';
+                
+                autoSlideInterval = setInterval(() => {
+                    if (currentIndex < slides.length - slidesPerView) {
+                        currentIndex++;
+                    } else {
+                        currentIndex = 0;
+                    }
+                    updateSlider();
+                    progressBar.style.width = '0%';
+                    void progressBar.offsetWidth;
+                    progressBar.style.width = '100%';
+                }, 5000);
+            }
+            
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+        });
+     </script>
            <div class="packing-process">
     <h2>Our 8-Step Premium Packing Process</h2>
     <p class="subtitle" style="margin-bottom: 1%;">Detailed breakdown of our professional packing methodology</p>
@@ -1639,58 +1707,15 @@
 </style>
         </div>
     </section>
-
-    <!-- Specialized Packing Section -->
-    <section class="specialized-packing">
-        <div class="section-title">
-            <h2>Specialized Packing Services</h2>
-            <p>We offer tailored packing solutions for your most valuable items</p>
-        </div>
-        
-        <div class="specialized-grid">
-            <div class="specialized-card">
-                <div class="specialized-icon">
-                    <i class="fas fa-wine-glass-alt"></i>
-                </div>
-                <h3>Fine China & Glassware</h3>
-                <p>Custom compartmentalized boxes with extra cushioning to protect your delicate dinnerware.</p>
-            </div>
-            
-            <div class="specialized-card">
-                <div class="specialized-icon">
-                    <i class="fas fa-tv"></i>
-                </div>
-                <h3>Electronics</h3>
-                <p>Anti-static packing materials and original packaging when available for TVs and computers.</p>
-            </div>
-            
-            <div class="specialized-card">
-                <div class="specialized-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <h3>Artwork</h3>
-                <p>Custom crating and climate-controlled transport for paintings and sculptures.</p>
-            </div>
-            
-            <div class="specialized-card">
-                <div class="specialized-icon">
-                    <i class="fas fa-tshirt"></i>
-                </div>
-                <h3>Wardrobe</h3>
-                <p>Clothing packed in wardrobe boxes to minimize wrinkling and keep items organized.</p>
-            </div>
-        </div>
-    </section>
-
    
     <!-- Service CTA -->
-    <section class="service-cta">
+    <section class="service-cta" style="margin-top: 0;padding-top: 0;">
         <div class="cta-container">
             <div class="cta-content">
                 <h2>Ready to Experience Stress-Free Packing?</h2>
                 <p>Let our professional packing team handle your belongings with care and precision.</p>
                 <div class="cta-buttons">
-                    <a href="tel:++919913609060" class="cta-button phone-button">
+                    <a href="tel:+917574941313" class="cta-button phone-button">
                         <i class="fas fa-phone"></i> Call Now
                     </a>
                     <a href="Contactus.html" class="cta-button secondary-button">Get a Quote</a>
@@ -2022,7 +2047,7 @@
     <div class="faq-footer">
         <p>Still have questions? Our packing experts are available 24/7 to help!</p>
         <div class="contact-options">
-            <a href="tel:+919913609060" class="contact-button phone">
+            <a href="tel:‪+917574941313" class="contact-button phone">
                 <i class="fas fa-phone"></i> Call Now
             </a>
             <a href="mailto:hello@gnrelocation.in" class="contact-button email">
@@ -2658,7 +2683,7 @@ document.querySelectorAll('.faq-category').forEach(category => {
             <div class="footer-links">
                 <h3>Our Services</h3>
                 <ul>
-                 <li>Residential Moving</a></li><li>Commercial Moving</a></li> <li>Packing Services</a></li> <li>Storage Solutions</a></li> <li>International Relocation</a></li> </ul> </div> <div class="footer-contact"> <h3>Contact Us</h3> <p><i class="fas fa-map-marker-alt"></i> B/09, 1st Floor, Hari Darshan Shopping Center, Mony Hotel Rd, Isanpur, Ahmedabad, Gujarat 382405</p> <p><i class="fas fa-phone"></i> +91 99136 09060</p> <p><i class="fas fa-envelope"></i> hello@gnrelocation.in</p> <p><i class="fas fa-clock"></i> Mon-Sun: 10:00 AM - 9:00 PM</p> </div> </div> <div class="footer-bottom"> <p>&copy; 2025 Gurunanak Relocation. All Rights Reserved. </div> 
+                 <li>Residential Moving</a></li><li>Commercial Moving</a></li> <li>Packing Services</a></li> <li>Storage Solutions</a></li> <li>International Relocation</a></li> </ul> </div> <div class="footer-contact"> <h3>Contact Us</h3> <p><i class="fas fa-map-marker-alt"></i> B/09, 1st Floor, Hari Darshan Shopping Center, Mony Hotel Rd, Isanpur, Ahmedabad, Gujarat 382405</p> <p><i class="fas fa-phone"></i> +91 75749 41313</p> <p><i class="fas fa-envelope"></i> hello@gnrelocation.in</p> <p><i class="fas fa-clock"></i> Mon-Sun: 10:00 AM - 9:00 PM</p> </div> </div> <div class="footer-bottom"> <p>&copy; 2025 Gurunanak Relocation. All Rights Reserved. </div>
     </footer>
 <!-- Back to Top Button -->
 <div class="back-to-top" id="backToTop">
