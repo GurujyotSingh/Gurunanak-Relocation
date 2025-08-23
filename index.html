@@ -1574,4 +1574,14 @@ One suggestion, please try open your service to other cities as well.
     ;
 </script>
 </body>
+    <script>
+if (window.history && window.history.pushState) {
+  let path = window.location.pathname;
+  if (path.endsWith(".html")) {
+    let cleanPath = path.replace(/\.html$/, "");
+    window.history.replaceState({}, document.title, cleanPath);
+  }
+}
+</script>
+
 </html>
