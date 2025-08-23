@@ -2752,4 +2752,14 @@ document.querySelectorAll('.process-card').forEach(card => {
         // Other scripts from index.html can be included here
     </script>
 </body>
+<script>
+if (window.history && window.history.pushState) {
+  let path = window.location.pathname;
+  if (path.endsWith(".html")) {
+    let cleanPath = path.replace(/\.html$/, "");
+    window.history.replaceState({}, document.title, cleanPath);
+  }
+}
+</script>
+
 </html>
