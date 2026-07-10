@@ -909,6 +909,9 @@
                                         <input type="text" id="from-input" placeholder="From" readonly>
                                     </div>
                                     <div class="city-dropdown" id="from-dropdown">
+                                        <div style="padding: 0 1rem 0.5rem 1rem;">
+                                            <input type="text" class="city-search-input" placeholder="Search city..." onkeyup="filterCities('from-dropdown', this.value)" onclick="event.stopPropagation()" style="width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: #fff; outline:none; font-family:inherit; font-size:0.9rem;">
+                                        </div>
                                         <p class="dropdown-title">Popular Cities</p>
                                         <div class="popular-grid">
                                             <button class="city-icon-btn" onclick="selectCity('from', 'Ahmedabad', event)"><div class="icon-circle"><i class="fa-solid fa-mosque"></i></div><span>Ahmedabad</span></button>
@@ -938,6 +941,9 @@
                                         <input type="text" id="to-input" placeholder="To" readonly>
                                     </div>
                                     <div class="city-dropdown" id="to-dropdown">
+                                        <div style="padding: 0 1rem 0.5rem 1rem;">
+                                            <input type="text" class="city-search-input" placeholder="Search city..." onkeyup="filterCities('to-dropdown', this.value)" onclick="event.stopPropagation()" style="width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: #fff; outline:none; font-family:inherit; font-size:0.9rem;">
+                                        </div>
                                         <p class="dropdown-title">Popular Cities</p>
                                         <div class="popular-grid">
                                             <button class="city-icon-btn" onclick="selectCity('to', 'Ahmedabad', event)"><div class="icon-circle"><i class="fa-solid fa-mosque"></i></div><span>Ahmedabad</span></button>
@@ -1323,7 +1329,13 @@
             const box = document.getElementById(dropdownId.replace('dropdown', 'box'));
             
             dropdown.classList.toggle('show');
-            if(dropdown.classList.contains('show')) box.classList.add('active');
+            if(dropdown.classList.contains('show')) {
+                box.classList.add('active');
+                const searchInput = dropdown.querySelector('.city-search-input');
+                if (searchInput) {
+                    searchInput.focus();
+                }
+            }
         }
 
         const cityCoords = {
@@ -1370,6 +1382,12 @@
             document.getElementById(type + '-input').value = cityName;
             cityData[type] = cityName;
             
+            // Clear searches
+            document.querySelectorAll('.city-search-input').forEach(inp => {
+                inp.value = '';
+                filterCities(inp.closest('.city-dropdown').id, '');
+            });
+            
             // Close dropdowns
             document.querySelectorAll('.city-dropdown').forEach(d => d.classList.remove('show'));
             document.querySelectorAll('.city-input-box').forEach(b => b.classList.remove('active'));
@@ -1382,6 +1400,24 @@
             }
 
             calcEstimate();
+        }
+
+        function filterCities(dropdownId, query) {
+            query = query.toLowerCase();
+            const dropdown = document.getElementById(dropdownId);
+            if (!dropdown) return;
+            
+            const buttons = dropdown.querySelectorAll('.popular-grid button');
+            buttons.forEach(btn => {
+                const city = btn.querySelector('span').textContent.toLowerCase();
+                btn.style.display = city.includes(query) ? '' : 'none';
+            });
+            
+            const listItems = dropdown.querySelectorAll('.other-cities-list li');
+            listItems.forEach(li => {
+                const city = li.textContent.toLowerCase();
+                li.style.display = city.includes(query) ? '' : 'none';
+            });
         }
 
         // Close dropdowns on outside click
