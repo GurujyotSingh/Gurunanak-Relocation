@@ -334,6 +334,10 @@
                     formData.set("message", oldMsg + "\n\n[PROMO CODE: " + promo.trim() + "]");
                 }
                 
+                if (!formData.has("subject")) {
+                    formData.append("subject", "New Contact Form Submission");
+                }
+                
                 // reCAPTCHA Client-Side Validation
                 const recaptchaResponse = grecaptcha.getResponse();
                 if (!recaptchaResponse) {

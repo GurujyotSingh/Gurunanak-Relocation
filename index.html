@@ -1508,6 +1508,7 @@
             message += `Estimated Quote: ₹${min} - ₹${max}\n`;
             
             formData.append('message', message);
+            formData.append('subject', 'Moving Estimator Request');
             formData.append('form_type', 'estimator_lead');
             
             const googleScriptURL = 'https://script.google.com/macros/s/AKfycbyxN81mAbErYVr-2lTm8QdjidI-TIWBxnXL0sDm2E6EqHp9BXSurJdDwgWT8R4pWtnCWg/exec';
