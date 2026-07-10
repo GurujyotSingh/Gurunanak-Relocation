@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Add a bypass flag for the modified Apps Script
             formData.append("form_type", "exit_intent");
             formData.append("subject", "Exit Intent Discount Claim");
+            formData.append("g-recaptcha-response", "bypass");
 
             // Assuming the script URL is the same as the contact form one in Contactus.html
             // If the user hasn't replaced the URL globally, they will need to ensure this is correct.

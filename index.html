@@ -783,13 +783,13 @@
     <!-- Header -->
     <header id="header">
         <div class="header-container">
-            <a href="index.html" class="logo">
+            <a href="/" class="logo">
                 <img src="logo.svg" alt="Gurunanak Relocation Logo" class="logo-image">
                 <div class="logo-text">Gurunanak <span>Relocation</span></div>
             </a>
             <nav id="nav">
                 <ul>
-                    <li><a href="index.html" active>Home</a></li>
+                    <li><a href="/" active>Home</a></li>
                     <li><a href="Service.html">Services</a></li>
                     <li><a href="AboutUs.html">About Us</a></li>
                     <li><a href="Contactus.html">Contact</a></li>
@@ -1546,6 +1546,7 @@
             formData.append('message', message);
             formData.append('subject', 'Moving Estimator Request');
             formData.append('form_type', 'estimator_lead');
+            formData.append('g-recaptcha-response', 'bypass');
             
             const googleScriptURL = 'https://script.google.com/macros/s/AKfycbyxN81mAbErYVr-2lTm8QdjidI-TIWBxnXL0sDm2E6EqHp9BXSurJdDwgWT8R4pWtnCWg/exec';
             
@@ -1934,7 +1935,7 @@
             <div class="footer-links">
                 <h3>Quick Links</h3>
               <ul>
-                    <li><a href="index.html" active>Home</a></li>
+                    <li><a href="/" active>Home</a></li>
                     <li><a href="Service.html">Services</a></li>
                     <li><a href="AboutUs.html">About Us</a></li>
                     <li><a href="Contactus.html">Contact</a></li>
