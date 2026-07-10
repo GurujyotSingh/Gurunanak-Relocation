@@ -1327,6 +1327,45 @@
             if(dropdown.classList.contains('show')) box.classList.add('active');
         }
 
+        const cityCoords = {
+            'Ahmedabad': [23.0225, 72.5714],
+            'Gandhinagar': [23.2156, 72.6369],
+            'Sanand': [22.9842, 72.3804],
+            'Baroda': [22.3072, 73.1812],
+            'Surat': [21.1702, 72.8311],
+            'Rajkot': [22.3039, 70.8022],
+            'Jamnagar': [22.4707, 70.0577],
+            'Mumbai': [19.0760, 72.8777],
+            'Pune': [18.5204, 73.8567],
+            'Delhi NCR': [28.7041, 77.1025],
+            'Gurgaon': [28.4595, 77.0266],
+            'Bangalore': [12.9716, 77.5946],
+            'Chennai': [13.0827, 80.2707],
+            'Hyderabad': [17.3850, 78.4867]
+        };
+
+        function calculateDistance(city1, city2) {
+            if (city1 === city2) return 50; 
+            const c1 = cityCoords[city1];
+            const c2 = cityCoords[city2];
+            if (!c1 || !c2) return 50;
+            
+            const R = 6371;
+            const dLat = (c2[0] - c1[0]) * Math.PI / 180;
+            const dLon = (c2[1] - c1[1]) * Math.PI / 180;
+            const lat1 = c1[0] * Math.PI / 180;
+            const lat2 = c2[0] * Math.PI / 180;
+
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                      Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+            const distance = R * c;
+            
+            // Add 25% for road routing and round to nearest 10
+            let roadDist = Math.round(distance * 1.25);
+            return Math.round(roadDist / 10) * 10;
+        }
+
         function selectCity(type, cityName, e) {
             e.stopPropagation();
             document.getElementById(type + '-input').value = cityName;
@@ -1336,6 +1375,14 @@
             document.querySelectorAll('.city-dropdown').forEach(d => d.classList.remove('show'));
             document.querySelectorAll('.city-input-box').forEach(b => b.classList.remove('active'));
             
+            // Auto calculate distance
+            if(cityData.from && cityData.to) {
+                const dist = calculateDistance(cityData.from, cityData.to);
+                estData.distance = dist;
+                document.getElementById('distance-slider').value = dist;
+                document.getElementById('distance-val-display').textContent = dist;
+            }
+
             calcEstimate();
         }
 
