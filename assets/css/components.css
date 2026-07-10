@@ -1,0 +1,334 @@
+/**
+ * Components System (Dark Theme)
+ */
+
+/* Removed custom cursor for native usability */
+
+/* ==========================================================================
+   BUTTONS (Cinematic Dark Mode)
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: var(--text-base);
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: background-color var(--transition-normal), color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Primary Button (Orange → Purple Gradient) */
+.btn-primary {
+    background: linear-gradient(to right, #ff6300, #5c0fd9);
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(255, 99, 0, 0.35);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #ff8c00, #7b2ff7);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    z-index: -1;
+    border-radius: inherit;
+}
+
+.btn-primary:hover {
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 14px 35px rgba(255, 99, 0, 0.5);
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+/* Ghost Button (Outline with Gradient Hover) */
+.btn-ghost {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: none;
+    transition: all var(--transition-normal);
+}
+
+.btn-ghost::before {
+    display: none;
+}
+
+.btn-ghost:hover {
+    background: linear-gradient(to right, #ff6300, #5c0fd9);
+    border-color: transparent;
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 14px 35px rgba(255, 99, 0, 0.5);
+}
+
+/* ==========================================================================
+   CARDS (Glassmorphism & Asymmetric)
+   ========================================================================== */
+.card {
+    background: var(--color-bg-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius-lg);
+    padding: var(--space-48);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-glass);
+    transition: transform var(--transition-slow), box-shadow var(--transition-normal);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,99,0,0.05) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.card:hover {
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   GRADIENT CARDS (Reference Aesthetics)
+   ========================================================================== */
+.gradient-card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gradient-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.gradient-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.gradient-card:hover::before {
+    transform: scaleX(1);
+}
+
+.gradient-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-24);
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 2rem;
+    box-shadow: 0 8px 20px rgba(255, 99, 0, 0.3);
+}
+
+/* ==========================================================================
+   ACCORDION (FAQ Component)
+   ========================================================================== */
+.accordion {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-32);
+}
+
+.accordion-category {
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+    color: #ffffff;
+    padding: var(--space-16) var(--space-24);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    font-weight: 600;
+    font-size: var(--text-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
+}
+
+.accordion-item {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: none;
+    margin-bottom: -1px; /* Remove double borders */
+}
+
+.accordion-item:last-child {
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: var(--space-24);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: var(--color-slate-900);
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: rgba(0,0,0,0.02);
+}
+
+.accordion-header::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--color-slate-400);
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-header::after {
+    content: '-';
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    background: #fafafa;
+}
+
+.accordion-content-inner {
+    padding: 0 var(--space-24) var(--space-24);
+    color: var(--color-slate-600);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   EXIT-INTENT POPUP
+   ========================================================================== */
+.exit-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 15, 28, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeInOverlay 0.5s forwards;
+}
+
+.exit-modal {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-xl);
+    padding: var(--space-48);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    animation: scaleUpModal 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.exit-close-btn {
+    position: absolute;
+    top: var(--space-16);
+    right: var(--space-16);
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.exit-close-btn:hover {
+    color: #fff;
+}
+
+.exit-icon {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-16);
+}
+
+.exit-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+}
+
+.exit-form input {
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    font-size: var(--text-base);
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.exit-form input:focus {
+    border-color: var(--color-primary);
+}
+
+@keyframes fadeInOverlay {
+    to { opacity: 1; }
+}
+
+@keyframes scaleUpModal {
+    to { transform: scale(1); }
+}

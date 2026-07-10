@@ -1,0 +1,547 @@
+/* ==========================================================================
+   WOW FACTOR COMPONENTS (Modern, Aesthetic, Glassmorphic)
+   ========================================================================== */
+
+/* Variables that match index.html */
+:root {
+    --wow-primary: #ff6300;
+    --wow-secondary: #5c0fd9;
+    --wow-bg: #f8f9fa;
+    --wow-card-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* 1. ESTEEMED CLIENTS MARQUEE */
+.wow-marquee-section {
+    padding: 3rem 0;
+    background: #ffffff;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.wow-marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+
+.wow-marquee-content {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    white-space: nowrap;
+    animation: wow-scroll 30s linear infinite;
+    padding-left: 5rem;
+}
+
+.wow-marquee-content:hover {
+    animation-play-state: paused;
+}
+
+@keyframes wow-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Assuming content is duplicated */
+}
+
+.wow-client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    flex-shrink: 0;
+}
+
+.wow-client-logo img {
+    height: 48px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.6);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.wow-client-logo img:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.08);
+}
+
+/* 2. SERVICES GRID (8 Cards) */
+.wow-services-section {
+    padding: 6rem 2rem;
+    background: var(--wow-bg);
+}
+
+.wow-section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.wow-section-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    display: inline-block;
+    position: relative;
+}
+
+.wow-section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(to right, var(--wow-primary), var(--wow-secondary));
+    border-radius: 5px;
+}
+
+.wow-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.wow-card {
+    background: var(--wow-card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 1;
+}
+
+.wow-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--wow-primary), var(--wow-secondary));
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.5s ease;
+    z-index: 2;
+}
+
+.wow-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(92, 15, 217, 0.15);
+}
+
+.wow-card:hover::before {
+    transform: scaleX(1);
+}
+
+.wow-icon-wrap {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--wow-primary), var(--wow-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 10px 20px rgba(255, 99, 0, 0.3);
+    transition: transform 0.5s ease;
+}
+
+.wow-card:hover .wow-icon-wrap {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.wow-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.wow-card p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* 3. 8-STEP HORIZONTAL PROCESS */
+.wow-process-section {
+    padding: 6rem 2rem;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.wow-timeline-scroll {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 1rem 4rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--wow-primary) #f0f0f0;
+}
+
+.wow-timeline-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.wow-timeline-scroll::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.wow-timeline-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, var(--wow-primary), var(--wow-secondary));
+    border-radius: 4px;
+}
+
+.wow-step-card {
+    flex: 0 0 300px;
+    scroll-snap-align: center;
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    border: 1px solid #f0f0f0;
+    transition: all 0.4s ease;
+}
+
+.wow-step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255,99,0,0.1);
+    border-color: rgba(255,99,0,0.2);
+}
+
+.wow-step-number {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--wow-secondary), var(--wow-primary));
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(92,15,217,0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.wow-step-card::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    right: -2rem;
+    width: 2rem;
+    height: 4px;
+    background: #f0f0f0;
+    z-index: 1;
+}
+
+.wow-step-card:last-child::after {
+    display: none;
+}
+
+.wow-step-card h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+/* 4. FAQ ACCORDION */
+.wow-faq-section {
+    padding: 6rem 2rem;
+    background: var(--wow-bg);
+}
+
+.wow-accordion-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.wow-faq-category {
+    background: linear-gradient(90deg, var(--wow-secondary), var(--wow-primary));
+    color: white;
+    padding: 1.2rem 2rem;
+    border-radius: 12px 12px 0 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 10px 20px rgba(92, 15, 217, 0.2);
+}
+
+.wow-accordion-item {
+    background: white;
+    margin-bottom: 0.5rem;
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.wow-accordion-header {
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+.wow-accordion-header:hover {
+    color: var(--wow-primary);
+    background: #fafafa;
+}
+
+.wow-accordion-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--wow-primary);
+    transition: transform 0.4s ease;
+}
+
+.wow-accordion-item.active .wow-accordion-icon {
+    transform: rotate(180deg);
+    background: var(--wow-primary);
+    color: white;
+}
+
+.wow-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.wow-accordion-inner {
+    padding: 0 2rem 1.5rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .wow-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .wow-grid { grid-template-columns: 1fr; }
+    .wow-section-header h2 { font-size: 2.2rem; }
+    .wow-step-card { flex: 0 0 260px; }
+}
+
+/* WOW REVEAL ANIMATIONS */
+.wow-reveal {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    filter: blur(4px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wow-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+}
+
+/* -------------------------------------
+   Interactive Scroll Sections (Migrated from home)
+   ------------------------------------- */
+
+/* Native Horizontal Scroll Gallery Section */
+.horizontal-section {
+    position: relative;
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.horizontal-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 99, 0, 0.05) 0%, transparent 60%);
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: 0;
+}
+
+.horizontal-sticky {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.horizontal-track {
+    display: flex;
+    gap: 2.5rem;
+    padding: 2rem 4rem 4rem 4rem;
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--wow-primary) rgba(0,0,0,0.05);
+}
+
+.horizontal-track::-webkit-scrollbar {
+    height: 10px;
+}
+.horizontal-track::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 5px;
+    margin: 0 4rem;
+}
+.horizontal-track::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, var(--wow-secondary), var(--wow-primary));
+    border-radius: 5px;
+}
+
+.horizontal-card {
+    width: 400px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+}
+
+/* Timeline */
+.timeline-section {
+    position: relative;
+    padding: 6rem 0;
+    /* Rich Gradient Background */
+    background: linear-gradient(135deg, rgba(92, 15, 217, 0.03) 0%, rgba(255, 99, 0, 0.05) 100%);
+    overflow: hidden;
+}
+
+/* Ambient glow balls for the timeline section */
+.timeline-section::before, .timeline-section::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    opacity: 0.5;
+}
+.timeline-section::before {
+    top: -100px;
+    left: -100px;
+    background: radial-gradient(circle, rgba(255,99,0,0.2) 0%, transparent 70%);
+}
+.timeline-section::after {
+    bottom: -100px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(92,15,217,0.2) 0%, transparent 70%);
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    z-index: 1;
+}
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: rgba(0,0,0,0.05);
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+.timeline-progress {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    background: linear-gradient(to bottom, var(--wow-secondary), var(--wow-primary));
+    height: 0%; /* JS will update this */
+    box-shadow: 0 0 15px var(--wow-primary), 0 0 30px var(--wow-secondary);
+    border-radius: 3px;
+    transition: height 0.1s ease-out;
+}
+.timeline-item {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50%;
+    position: relative;
+    margin-bottom: 5rem;
+    perspective: 1000px;
+}
+.timeline-item:nth-child(even) {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 50%;
+}
+.timeline-content {
+    width: 85%;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05), inset 0 0 0 1px rgba(255,255,255,0.5);
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease-out;
+}
+
+/* Transform origin from the circle point */
+.timeline-item:nth-child(odd) .timeline-content {
+    transform-origin: right 30px;
+}
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: auto;
+    transform-origin: left 30px;
+}
+
+/* Pop-up animation */
+.timeline-item.is-active .timeline-content {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 20px 40px rgba(92,15,217,0.1), inset 0 0 0 2px rgba(255,255,255,0.8);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 4px solid #ddd;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    z-index: 2;
+}
+.timeline-item.is-active .timeline-dot {
+    border-color: var(--wow-primary);
+    box-shadow: 0 0 15px rgba(255, 99, 0, 0.4);
+}

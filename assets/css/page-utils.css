@@ -1,0 +1,61 @@
+/* ============================================
+   PAGE UTILS — Shared between About & Contact
+   Adds: body base, scrollbar, back-to-top button
+   (Mobile nav is already handled in header.css)
+   ============================================ */
+
+/* --- Body Base --- */
+body {
+    font-family: var(--font-body);
+    background-color: #fafafa;
+    color: #1a1a1a;
+    overflow-x: clip;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+
+/* --- Custom Scrollbar (Desktop Only) --- */
+@media (min-width: 769px) {
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f8f9fa; }
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #ff6300, #5c0fd9);
+        border-radius: 10px;
+    }
+}
+
+/* --- Back to Top Button --- */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(to right, #ff6300, #5c0fd9);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 8px 20px rgba(255, 99, 0, 0.35);
+    z-index: 999;
+    font-size: 1.1rem;
+    border: none;
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 15px 30px rgba(255, 99, 0, 0.55);
+}

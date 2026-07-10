@@ -1,0 +1,297 @@
+/**
+ * Home Page Styles
+ * Specific styles for sections defined in the wireframe.
+ */
+
+/* ==========================================================================
+   1. HERO SECTION
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: var(--space-96); /* Account for header */
+    overflow: hidden;
+}
+
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-color: var(--color-primary); /* Fallback */
+}
+
+.hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: hero-zoom 20s ease-out forwards;
+}
+
+@keyframes hero-zoom {
+    0% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    /* Premium dark gradient overlay */
+    background: linear-gradient(135deg, rgba(10, 37, 64, 0.9) 0%, rgba(10, 37, 64, 0.6) 100%);
+}
+
+.hero__content {
+    color: var(--color-surface);
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero__title {
+    color: var(--color-surface);
+    margin-bottom: var(--space-24);
+}
+
+.hero__subtitle {
+    font-size: var(--text-xl);
+    color: #E2E8F0;
+    margin-bottom: var(--space-48);
+    font-weight: 400;
+}
+
+.hero__actions {
+    display: flex;
+    gap: var(--space-16);
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   2. TRUST STRIP
+   ========================================================================== */
+.trust-strip {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: var(--space-24) var(--space-32);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-24);
+    margin-top: -50px; /* Overlap hero */
+    position: relative;
+    z-index: 5;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.trust-item i {
+    color: var(--color-warning);
+    font-size: var(--text-xl);
+}
+
+@media (max-width: 768px) {
+    .trust-strip {
+        margin-top: 0;
+        border-radius: 0;
+        justify-content: center;
+    }
+}
+
+/* ==========================================================================
+   3. ANIMATED STATISTICS
+   ========================================================================== */
+.stat-box {
+    text-align: center;
+    padding: var(--space-32);
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    color: var(--color-secondary);
+    margin-bottom: var(--space-8);
+    line-height: 1;
+}
+
+.stat-label {
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: var(--text-sm);
+}
+
+/* ==========================================================================
+   4. WHY CHOOSE US
+   ========================================================================== */
+.features-image-wrapper {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.features-image-wrapper img {
+    border-radius: var(--radius-lg);
+    width: 100%;
+    height: auto;
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: var(--space-32);
+    right: -20px;
+    background: var(--color-surface);
+    padding: var(--space-24);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
+    z-index: 2;
+}
+
+.floating-badge i {
+    font-size: 40px;
+    color: var(--color-secondary);
+}
+
+.feature-list {
+    margin-top: var(--space-32);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+}
+
+.feature-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-16);
+}
+
+.feature-list-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    color: var(--color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+   5. PROCESS TIMELINE
+   ========================================================================== */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-32);
+    position: relative;
+}
+
+/* Connecting line */
+.process-grid::before {
+    content: '';
+    position: absolute;
+    top: 40px; /* Half of icon height */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-border);
+    z-index: 0;
+}
+
+.process-step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.process-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-24);
+    background-color: var(--color-surface);
+    border: 2px solid var(--color-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal);
+}
+
+.process-step:hover .process-icon {
+    transform: scale(1.1);
+    background-color: var(--color-secondary);
+    color: var(--color-surface);
+}
+
+@media (max-width: 992px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-48);
+    }
+    .process-grid::before {
+        display: none;
+    }
+    .process-step {
+        display: flex;
+        text-align: left;
+        align-items: flex-start;
+        gap: var(--space-24);
+    }
+    .process-icon {
+        margin: 0;
+        flex-shrink: 0;
+    }
+}
+
+/* ==========================================================================
+   6. CTA SECTION
+   ========================================================================== */
+.cta-banner {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--space-64);
+    text-align: center;
+    color: var(--color-surface);
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 99, 0, 0.1) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.cta-banner > * {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-banner h2 {
+    color: var(--color-surface);
+}

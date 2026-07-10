@@ -1,0 +1,44 @@
+
+@font-face {
+    font-family: 'Unica77LLWeb';
+    src: url('../fonts/Unica77LLWeb_Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Unica77LLWeb';
+    src: url('../fonts/Unica77LLWeb_Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'QuariaDisplay';
+    src: url('../fonts/QuariaDisplay_Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'QuariaDisplay';
+    src: url('../fonts/QuariaDisplay_RegularItalic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Apply new fonts */
+body {
+    font-family: 'Unica77LLWeb', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .section-title, .wow-section-header h2, .service-hero h1, .hero h1 {
+    font-family: 'QuariaDisplay', serif;
+}
+
+/* EXCLUDE TOP BAR AND FOOTER FROM NEW FONTS */
+#header, nav, .header, .nav-links {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Keep Poppins on specific elements */
+.logo-text, nav a {
+    font-family: 'Poppins', sans-serif;
+}

@@ -1,571 +1,391 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-smooth-scroll">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gurunanak Relocation - Premium Moving Services</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="head.png">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Gurunanak Relocation">
+    <meta name="theme-color" content="#0A4DA2">
+    
+    <title>Gurunanak Relocation | Trusted Packers and Movers in India</title>
+    <meta name="description" content="Gurunanak Relocation provides professional packing, moving, home relocation, office shifting, vehicle transportation, and storage services across India. Get a free moving quote today.">
+    <meta name="keywords" content="packers and movers India, home shifting, office relocation, vehicle transportation, logistics services, Gurunanak Relocation">
+    <link rel="canonical" href="https://gnrelocation.in/">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Gurunanak Relocation">
+    <meta property="og:title" content="Gurunanak Relocation | Trusted Packers and Movers in India">
+    <meta property="og:description" content="Gurunanak Relocation provides professional packing, moving, home relocation, office shifting, vehicle transportation, and storage services across India. Get a free moving quote today.">
+    <meta property="og:image" content="https://gnrelocation.in/backimage.jpg">
+    <meta property="og:url" content="https://gnrelocation.in/">
+    
+    <!-- Twitter Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gurunanak Relocation | Trusted Packers and Movers in India">
+    <meta name="twitter:description" content="Gurunanak Relocation provides professional packing, moving, home relocation, office shifting, vehicle transportation, and storage services across India. Get a free moving quote today.">
+    <meta name="twitter:image" content="https://gnrelocation.in/backimage.jpg">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MovingCompany",
+      "name": "Gurunanak Relocation",
+      "url": "https://gnrelocation.in",
+      "logo": "https://gnrelocation.in/logo.png",
+      "image": "https://gnrelocation.in/backimage.jpg",
+      "telephone": "+91-7574941313",
+      "email": "hello@gnrelocation.in",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "B/09, 1st Floor, Hari Darshan Shopping Center, Mony Hotel Rd, Isanpur",
+        "addressLocality": "Ahmedabad",
+        "addressRegion": "Gujarat",
+        "postalCode": "382405",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+    
+    <!-- Google Fonts: Poppins (for logo), Inter (Headings) & Manrope (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Langar&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="backimage.jpg">
+    
+    <!-- FontAwesome (Preloaded) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <!-- CSS Architecture (Dark Theme Cinematic) -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/typography.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+        
+    <!-- We removed animations.css because we are using JS scroll triggers now, but we might still need some utility classes if defined. -->
+    <link rel="stylesheet" href="assets/css/home.css">
+
     <style>
+        /* Map original index.html variables for global components like header.css */
         :root {
             --primary: #ff6300;
-            --primary-light: rgba(255, 99, 0, 0.1);
             --secondary: #5c0fd9;
-            --secondary-light: rgba(92, 15, 217, 0.1);
             --dark: #1a1a1a;
-            --dark-80: rgba(26, 26, 26, 0.8);
-            --light: #f8f9fa;
-            --light-90: rgba(248, 249, 250, 0.9);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-            --border-radius: 12px;
-            --border-radius-lg: 24px;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
-       
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--light);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
-            border-radius: 10px;
-        }
-        
-        /* Header - Glass Morphism Effect */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1rem 0;
-            z-index: 1000;
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.85);
-            box-shadow: var(--shadow);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        header.scrolled {
-            padding: 1rem 0;
-            background: rgba(255, 255, 255, 0.95);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .logo:hover {
-            transform: translateY(-3px);
-        }
-        
-        .logo-image {
-            height: 70px;
-            width: auto;
-            object-fit: contain;
-            image-rendering: -webkit-optimize-contrast;
-        }
-        
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-        
-        
-        nav a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: var(--transition);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            transition: var(--transition);
-        }
-        
-        nav a:hover {
-            color: var(--primary);
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        .cta-button {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
+
+        /* Home Page Specific Header Animation (Improved Elastic Popup) */
+        #header {
+            transform: translateY(-150%) scale(0.6) perspective(1000px) rotateX(-15deg);
             opacity: 0;
-            transition: var(--transition);
-            z-index: -1;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .cta-button:hover::before {
-            opacity: 1;
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark);
-        }
-        
-        /* Hero Section - 3D Parallax Effect */
-        .hero {
-            height: 100vh;
-            min-height: 800px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("backimage.jpg") no-repeat center center/cover;
-            z-index: -2;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(92, 15, 217, 0.3) 0%, rgba(255, 99, 0, 0.3) 100%);
-            z-index: -1;
-        }
-        
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-            transform-style: preserve-3d;
-        }
-        
-        .hero-text {
-            max-width: 700px;
-            transform: translateZ(50px);
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #fff, #f0f0f0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .secondary-button {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            backdrop-filter: blur(5px);
-        }
-        
-        .secondary-button:hover {
-            background: white;
-            color: var(--dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
-        
-        /* Floating Furniture Animation */
-        .furniture-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.7s ease, background 0.4s ease;
             pointer-events: none;
-            z-index: 0;
+            transform-origin: top center;
         }
-        
-        .furniture-item {
-            position: absolute;
-            font-size: 2.5rem;
-            color: white;
-            opacity: 0.8;
-            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
-            animation: float 8s ease-in-out infinite;
-            z-index: 1;
+
+        #header.home-popup-active {
+            transform: translateY(0) scale(1) perspective(1000px) rotateX(0deg);
+            opacity: 1;
+            pointer-events: auto;
         }
+
+        /* Home Specific Editorial Layout Styles */
         
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-40px) rotate(5deg);
-            }
-        }
-        
-        /* Gradient Orbs Animation */
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(50px);
-            opacity: 0.4;
-            animation: pulse 12s ease-in-out infinite alternate;
-            z-index: 0;
-        }
-        
-        .orb-1 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-            top: 20%;
-            left: 10%;
-        }
-        
-        .orb-2 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
-            bottom: 15%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.3;
-            }
-            100% {
-                transform: scale(1.2);
-                opacity: 0.6;
-            }
-        }
-        
-        /* Services Section - 3D Card Hover Effect */
-        .services {
-            padding: 1rem 1rem;
-            background-color: white;
-            
+        /* Pinned Horizontal Gallery Section */
+        .horizontal-section {
+            height: 500vh; /* Increased scroll duration for 8 cards */
             position: relative;
+        }
+
+        .horizontal-sticky {
+            position: absolute; /* Replaced sticky with absolute for JS pinning */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
             overflow: hidden;
+            background-color: var(--color-bg);
+            will-change: transform;
         }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 5rem;
+
+        .horizontal-track {
+            display: flex;
+            gap: var(--space-48);
+            padding: 0 var(--space-64);
+            width: max-content;
+            /* JS will transform this horizontally based on vertical scroll */
+            will-change: transform;
         }
-        
-        .section-title h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--dark);
-            position: relative;
-            display: inline-block;
-            margin-bottom: 1.5rem;
+
+        .horizontal-card {
+            width: 450px;
+            flex-shrink: 0;
         }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            border-radius: 5px;
-        }
-        
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-        }
-        
-        .services-grid {
+
+        /* Large Image overlapping */
+        .editorial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            perspective: 1000px;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-64);
+            align-items: center;
+            margin: var(--space-160) 0;
         }
-        
-        .service-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+
+        .editorial-img-wrapper {
             position: relative;
-            transform-style: preserve-3d;
-            z-index: 1;
+            height: 80vh;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
         }
-        
-        .service-card::before {
-            content: '';
+
+        .editorial-img-wrapper img {
+            width: 100%;
+            height: 120%; /* Extra height for parallax */
+            object-fit: cover;
+            transform-origin: center;
+        }
+
+        .editorial-stats {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: var(--color-primary);
+            color: #000;
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-heading);
+        }
+
+        .editorial-stats h3 {
+            font-size: var(--text-5xl);
+            margin: 0;
+            color: #000;
+        }
+
+        .editorial-stats p {
+            margin: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(0,0,0,0.7);
+        }
+
+        /* Marquee */
+        .marquee-section {
+            padding: var(--space-48) 0;
+            background: #ffffff;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            overflow: hidden;
+            position: relative;
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-item {
+            font-family: var(--font-heading);
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            color: var(--color-text-muted);
+            opacity: 0.4;
+            padding: 0 var(--space-48);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Timeline */
+        .timeline-section {
+            position: relative;
+            padding: var(--space-160) 0;
+        }
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(0,0,0,0.1);
+            transform: translateX(-50%);
+        }
+        .timeline-progress {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: var(--color-primary);
+            height: 0%; /* JS will update this */
+            box-shadow: 0 0 10px var(--color-primary);
+        }
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: var(--space-96);
+        }
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+        .timeline-content {
+            width: 80%;
+            padding: var(--space-32);
+            background: var(--color-bg-elevated);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 4px solid var(--color-text-muted);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: border-color 0.4s ease;
             z-index: 2;
         }
-        .service-icon {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 2rem;
+        .timeline-item.is-active .timeline-dot {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 15px rgba(255, 99, 0, 0.4);
+        }
+
+        /* Testimonials Snap Scroll */
+        .testimonials-track {
+            display: flex;
+            gap: var(--space-32);
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: var(--space-32) var(--container-padding);
+            scrollbar-width: none; /* Firefox */
+        }
+        .testimonials-track::-webkit-scrollbar {
+            display: none; /* Chrome */
+        }
+        .testimonial-card {
+            scroll-snap-align: center;
+            flex: 0 0 400px;
+            background: var(--color-bg-elevated);
+            padding: var(--space-48);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-glass);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .testimonial-stars { color: #f59e0b; margin-bottom: var(--space-16); }
+
+        /* Map Pulses */
+        .map-pulse {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .map-pulse::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 99, 0, 0.4);
+            border-radius: 50%;
+            animation: pulse 2s infinite cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        
+        /* Certifications Grid */
+        .cert-grid {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-64);
+            flex-wrap: wrap;
+            padding: var(--space-64) 0;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .cert-badge {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px dashed rgba(0,0,0,0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
-        .service-icon i {
-            font-size: 3rem;
-            color: white;
-            position: relative;
-            z-index: 2;
-            transition: var(--transition);
-        }
-        
-        .service-icon::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            border-radius: 50%;
-            z-index: 1;
-            transform: scale(1);
-            transition: var(--transition);
-        }
-        
-        .service-icon::after {
-            content: '';
-            position: absolute;
-            width: 110%;
-            height: 110%;
-            border: 2px dashed var(--primary);
-            border-radius: 50%;
-            z-index: 0;
-            animation: spin 20s linear infinite;
-            opacity: 0.5;
-        }
-        
-        .service-card:hover .service-icon i {
-            transform: scale(1.1) rotate(10deg);
-        }
-        
-        .service-card:hover .service-icon::before {
-            transform: scale(1.1);
-        }
-        
-        .service-content {
-            padding: 2.5rem;
-            text-align: center;
-        }
-        
-        .service-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-        
-        .service-content p {
-            color: #666;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-        
-        .service-button {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-block;
-            text-decoration: none;
-        }
-        
-        .service-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
-        
-        
-        /* CTA Section - Animated Gradient Background */
-        .cta-section {
-            padding: 8rem 2rem;
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(-45deg, var(--secondary), var(--primary), var(--secondary), var(--primary));
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            z-index: -2;
-        }
-        
-        .cta-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: -1;
-        }
-        
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-        
-        .cta-section h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            color: var(--color-text-muted);
+            font-family: var(--font-heading);
             font-weight: 700;
+            font-size: var(--text-xs);
+            text-align: center;
         }
-        
-        .cta-section p {
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            font-size: 1.3rem;
-            opacity: 0.9;
+
+        /* Responsive Homepage Grid Overrides */
+        @media (max-width: 992px) {
+            .editorial-grid {
+                grid-template-columns: 1fr;
+            }
         }
-        
+        @media (max-width: 768px) {
+            .horizontal-card {
+                width: 85vw;
+            }
+            .testimonial-card {
+                flex: 0 0 85vw;
+            }
+            .timeline-item, .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-right: 0;
+                padding-left: 30px;
+            }
+            .timeline-item .timeline-content, .timeline-item:nth-child(even) .timeline-content {
+                width: 100%;
+                margin-left: 0;
+            }
+            .timeline-line {
+                left: 10px;
+                transform: none;
+            }
+            .timeline-dot {
+                left: 10px;
+                transform: translate(-50%, -50%);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/global-fonts.css">
+<style>
         /* Footer - Multi-column Layout */
         footer {
-            background-color: var(--dark);
+            background-color: #1A1A1A;
             color: white;
             padding: 6rem 2rem 2rem;
             position: relative;
@@ -587,7 +407,7 @@
         }
         
         .footer-logo span {
-            background: linear-gradient(to right, var(--primary), #ff8c00);
+            background: linear-gradient(to right, #FF6B00, #ff8c00);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -613,12 +433,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             font-size: 1.2rem;
         }
         
         .social-links a:hover {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #ff6300, #5c0fd9);
             transform: translateY(-3px);
         }
         
@@ -636,7 +456,7 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(to right, #ff6300, #5c0fd9);
         }
         
         .footer-links ul {
@@ -650,13 +470,13 @@
         .footer-links a {
             color: #bbb;
             text-decoration: none;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             font-size: 1rem;
             display: inline-block;
         }
         
         .footer-links a:hover {
-            color: var(--primary);
+            color: #FF6B00;
             transform: translateX(5px);
         }
         
@@ -670,7 +490,7 @@
         }
         
         .footer-contact i {
-            color: var(--primary);
+            color: #FF6B00;
             font-size: 1.2rem;
             width: 25px;
         }
@@ -684,36 +504,7 @@
             font-size: 0.9rem;
         }
         
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            opacity: 0;
-            visibility: hidden;
-            box-shadow: var(--shadow);
-            z-index: 999;
-        }
         
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
         
         /* Responsive Styles */
         @media (max-width: 1200px) {
@@ -749,7 +540,7 @@
                 width: 100%;
                 background: rgba(255, 255, 255, 0.95);
                 padding: 2rem;
-                box-shadow: var(--shadow);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 clip-path: circle(0% at 100% 0%);
                 transition: clip-path 0.7s ease;
                 z-index: 999;
@@ -765,7 +556,7 @@
             }
             
             nav a {
-                color: var(--dark);
+                color: #1A1A1A;
                 font-size: 1.2rem;
             }
             
@@ -853,7 +644,7 @@
                 padding-bottom: 1rem;
                 /* Show scrollbar for horizontal scroll */
                 scrollbar-width: thin;
-                scrollbar-color: var(--primary) var(--light);
+                scrollbar-color: #FF6B00 var(--light);
             }
             .service-card {
                 min-width: 75vw;
@@ -893,16 +684,108 @@
                 display: none;
             }
         }
-    </style>
+
+        /* Premium Glassmorphic Testimonials */
+        .testimonial-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-32);
+            align-items: start;
+        }
+
+        .testi-card-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-xl);
+            padding: var(--space-48);
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .testi-card-glass:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .testi-quote-icon {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 120px;
+            font-family: serif;
+            color: rgba(255, 255, 255, 0.03);
+            line-height: 1;
+            pointer-events: none;
+            transition: color 0.5s ease;
+        }
+
+        .testi-card-glass:hover .testi-quote-icon {
+            color: rgba(255, 99, 0, 0.1);
+        }
+
+        .testi-text {
+            color: #E2E8F0;
+            font-size: var(--text-lg);
+            line-height: 1.6;
+            margin-bottom: var(--space-32);
+            position: relative;
+            z-index: 2;
+        }
+
+        .testi-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-16);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: var(--space-24);
+        }
+
+        .testi-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: var(--text-lg);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+        }
+
+        .testi-author h4 {
+            color: #ffffff;
+            margin: 0 0 4px 0;
+            font-size: var(--text-base);
+        }
+
+        .testi-author span {
+            color: var(--color-primary);
+            font-size: var(--text-sm);
+            font-weight: 600;
+        }
+
+</style>
 </head>
 <body>
+
+    <!-- Ambient Wow Factor Glows -->
+    <div class="ambient-glow" style="position: fixed; top: -10vw; right: -10vw; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(255,99,0,0.15) 0%, transparent 70%); filter: blur(80px); z-index: -5; pointer-events: none;"></div>
+    <div class="ambient-glow" style="position: fixed; bottom: -10vw; left: -10vw; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(92,15,217,0.1) 0%, transparent 70%); filter: blur(100px); z-index: -5; pointer-events: none;"></div>
+
     <!-- Header -->
     <header id="header">
         <div class="header-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <img src="logo.svg" alt="Gurunanak Relocation Logo" class="logo-image">
-                <div class="logo-text">Gurunanak <span>Relocation
-</span></div>
+                <div class="logo-text">Gurunanak <span>Relocation</span></div>
             </a>
             <nav id="nav">
                 <ul>
@@ -912,553 +795,587 @@
                     <li><a href="Contactus.html">Contact</a></li>
                 </ul>
             </nav>
-            <!-- Removed Get a Quote button -->
             <div class="mobile-menu" id="mobileMenu">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
+
+    <!-- Smooth Scroll Wrapper -->
+    <main id="scroll-container">
         
-      
-        <!-- Gradient Orbs -->
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Premium Moving Services With Care</h1>
-                <p>Experience seamless relocation with our professional team. We handle everything from packing to transportation with precision and care.</p>
-                <div class="hero-buttons">
-                    <a href="Contactus.html"><button class="cta-button">Book Now</button></a>
-                   <a href="AboutUs.html"><button class="secondary-button">Learn More</button></a>
+        <!-- Immersive Hero -->
+        <section class="hero" style="height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden;">
+            <div class="hero__bg" style="position: absolute; top: -10%; left: 0; width: 100%; height: 120%; z-index: -2;">
+                <!-- Dark Overlay to make text pop -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.4) 100%); z-index: 1;"></div>
+                <!-- Using js-parallax to slowly move image against scroll -->
+                <img src="backimage.jpg" alt="Premium logistics" class="js-parallax" data-speed="0.4" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7);">
+            </div>
+            
+            <div class="container" style="position: relative; z-index: 1;">
+                <div class="js-reveal" style="opacity: 0; transform: translateY(15px); transition: all 0.8s ease;">
+                    <span style="display: inline-block; padding: 8px 20px; border: 1px solid rgba(255,99,0,0.4); border-radius: 30px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: var(--space-24); background: rgba(0,0,0,0.3); backdrop-filter: blur(10px); color: #ffffff; font-weight: 600; box-shadow: 0 4px 15px rgba(255,99,0,0.15);">
+                        Gurunanak Relocation
+                    </span>
+                </div>
+                <h1 class="hero__title js-split-text" style="max-width: 900px; line-height: 1; color: #ffffff; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                    Premium Moving Services With Care
+                </h1>
+                <p class="hero__subtitle js-reveal" style="font-size: var(--text-xl); color: rgba(255,255,255,0.9); text-shadow: 0 2px 10px rgba(0,0,0,0.5); margin-top: var(--space-32); max-width: 600px; opacity: 0; transform: translateY(15px) scale(0.98); filter: blur(4px); transition: all 1s ease 0.5s;">
+                    Experience seamless relocation with our professional team. We handle everything from packing to transportation with precision and care.
+                </p>
+                <div class="hero__actions js-reveal" style="margin-top: var(--space-48); opacity: 0; transform: translateY(15px) scale(0.98); filter: blur(4px); transition: all 1s ease 0.8s; display: flex; gap: var(--space-16);">
+                    <a href="Contactus.html" class="btn btn-primary">Book Now</a>
+                    <a href="AboutUs.html" class="btn btn-ghost">Learn More</a>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Services Section -->
-    <section  class="services">
-    <div class="section-title">
-        <h2 id="services-gn" >Our Services</h2>
-        <p>Comprehensive moving solutions tailored to your specific needs and requirements</p>
-    </div>
-    <!-- Removed slider nav bar -->
-    <div class="services-grid" id="servicesGrid">
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon">
-                    <i class="fas fa-boxes"></i>
+
+            <!-- Scroll Indicator -->
+            <div style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; color: rgba(255,255,255,0.5);">
+                <span class="text-xs">Scroll to explore</span>
+                <div style="width: 1px; height: 60px; background: rgba(255,255,255,0.2); overflow: hidden;">
+                    <div style="width: 100%; height: 100%; background: var(--color-primary); transform: translateY(-100%); animation: scroll-down 2s infinite ease-in-out;"></div>
                 </div>
-                <h3>Professional Packing</h3>
-                <p>Our experts use high-quality materials and techniques to ensure your belongings are packed securely for transport.</p>
-                
             </div>
-        </div>
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon">
-                    <i class="fas fa-home"></i>
+        </section>
+
+             <!-- Asymmetric Editorial Introduction -->
+   <section id="explore" class="container" style="margin-top: var(--space-160);">
+            <div class="editorial-grid">
+                <div class="editorial-text js-reveal" style="opacity: 0; transform: translateY(15px) scale(0.98); filter: blur(4px); transition: all 1.2s ease;">
+                    <span class="text-accent text-xs" style="text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: var(--space-24);">Why Choose Us</span>
+                    <h2 class="js-split-text">We make moving stress-free and easy.</h2>
+                    <p style="font-size: var(--text-lg); color: var(--color-text-muted);">
+                        With years of experience, we provide reliable, efficient, and affordable moving services. Your belongings are in safe hands.
+                    </p>
+                    <ul style="margin-top: var(--space-32); display: flex; flex-direction: column; gap: var(--space-16);">
+                        <li style="display: flex; align-items: center; gap: var(--space-16); font-size: var(--text-lg);">
+                            <i class="fas fa-check" style="color: var(--color-primary);"></i> Professional & Trained Staff
+                        </li>
+                        <li style="display: flex; align-items: center; gap: var(--space-16); font-size: var(--text-lg);">
+                            <i class="fas fa-check" style="color: var(--color-primary);"></i> 100% Safe Packaging
+                        </li>
+                        <li style="display: flex; align-items: center; gap: var(--space-16); font-size: var(--text-lg);">
+                            <i class="fas fa-check" style="color: var(--color-primary);"></i> On-Time Delivery Guarantee
+                        </li>
+                    </ul>
                 </div>
-                <h3>Residential Relocation</h3>
-                <p>Our Residential Relocation services are designed to ensure smooth and stress-free moving experience for your home, covering everything from packing to unpacking.</p>
-                
-            </div>
-        </div>
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon">
-                    <i class="fas fa-building"></i>
-                </div>
-                <h3>Business Relocation</h3>
-                <p>Our logistics services for business relocations are both efficient and dependable, guaranteeing the safe and prompt delivery of your goods.</p>
-                
-            </div>
-        </div>
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon">
-                    <i class="fas fa-car"></i>
-                </div>
-                <h3>Vehicle Relocation</h3>
-                <p>Our expert handling, secure transport, and real-time tracking ensure your vehicle reaches its destination damage-free and on time.</p>
-                
-            </div>
-        </div>
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon">
-                    <i class="fas fa-couch"></i>
-                </div>
-                <h3>Furniture Relocation</h3>
-                <p>Relocating furniture? Our experienced team excels in careful and efficient furniture moving. Allow us to take care of the heavy lifting for you.</p>
-                
-            </div>
-        </div>
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon">
-                    <i class="fas fa-plane"></i>
-                </div>
-                <h3>Air Shipments</h3>
-                <p>Ensure swift, secure and seamless air cargo delivery worldwide. With expert handling and real-time tracking, your goods arrive on time, every time.</p>
-                
-            </div>
-        </div>
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon">
-                    <i class="fas fa-warehouse"></i>
-                </div>
-                <h3>Reliable Storage Solutions</h3>
-                <p>Looking for temporary storage for your items? Our secure storage solutions provide a safe and easily accessible option.</p>
-                
-            </div>
-        </div>
-        <div class="service-card">
-            <div class="service-content">
-                <div class="service-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <h3>Fine Art Relocation</h3>
-                <p>Our tailored crating, climate-controlled transportation, and professional handling guarantee that your valuables reach their destination perfectly and without any damage.</p>
-                
-            </div>
-        </div>
-    </div>
-</section>
-    <style>
-        /* Testimonials Section - Enhanced */
-.testimonials {
-    padding: 6rem 1rem;
-    background: linear-gradient(135deg, var(--secondary-light) 0%, var(--primary-light) 100%);
-    position: relative;
-    overflow: hidden;
-    
-}
-
-.testimonial-slider-container {
-    position: relative;
-    max-width: 1400px;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 0 2rem;
-}
-
-.testimonial-slider-track {
-    display: flex;
-    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
-    will-change: transform;
-    width: 100%;
-}
-
-.testimonial-card {
-    min-width: 100%;
-    box-sizing: border-box;
-    flex-shrink: 1;
-    background: #fff;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-lg);
-    padding: 2.5rem;
-    margin: 0 0.5rem;
-    transition: all 0.3s ease;
-    position: relative;
-    max-width: max-content;
-}
-
-.testimonial-text {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: #555;
-    margin-bottom: 2rem;
-    line-height: 1.7;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.testimonial-text::before {
-    content: '"';
-    position: absolute;
-    left: 0;
-    top: -0.5rem;
-    font-size: 3rem;
-    color: var(--primary);
-    opacity: 0.3;
-    line-height: 1;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.author-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--primary-light);
-}
-
-.author-info h4 {
-    font-size: 1.2rem;
-    color: var(--dark);
-    margin-bottom: 0.3rem;
-}
-
-.author-info p {
-    color: var(--primary);
-    font-weight: 500;
-    font-size: 0.95rem;
-}
-
-.testimonial-slider-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    gap: 1.5rem;
-}
-
-.testimonial-slider-arrow {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    flex-shrink: 0;
-}
-
-.testimonial-slider-arrow:hover {
-    transform: scale(1.1);
-    opacity: 1;
-}
-
-.testimonial-dots {
-    display: flex;
-    gap: 0.8rem;
-    margin: 0 1rem;
-}
-
-.testimonial-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.testimonial-dot.active {
-    background: var(--primary);
-    transform: scale(1.2);
-}
-
-/* Responsive Styles */
-@media (max-width: 992px) {
-    .testimonial-card {
-        padding: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .testimonials {
-        padding: 4rem 0.5rem;
-    }
-    
-    .testimonial-slider-container {
-        padding: 0 1rem;
-    }
-    
-    .testimonial-card {
-        padding: 1.5rem;
-        margin: 0 0.3rem;
-    }
-    
-    .testimonial-text {
-        font-size: 1rem;
-        padding-left: 1rem;
-    }
-    
-    .testimonial-text::before {
-        font-size: 2.5rem;
-    }
-    
-    .author-avatar {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .testimonial-slider-arrow {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .testimonial-dot {
-        width: 10px;
-        height: 10px;
-    }
-}
-
-@media (max-width: 576px) {
-    .testimonials {
-        padding: 3rem 0.3rem;
-    }
-    
-    .testimonial-card {
-        padding: 1.5rem;
-    }
-    
-    .testimonial-text {
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .author-avatar {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .author-info h4 {
-        font-size: 1rem;
-    }
-    
-    .testimonial-slider-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-    }
-    
-    .testimonial-dots {
-        gap: 0.5rem;
-    }
-    
-    .testimonial-dot {
-        width: 8px;
-        height: 8px;
-    }
-}
-    </style>
-<section class="testimonials" aria-label="Client testimonials">
-    <div class="section-title">
-        <h2>Client Testimonials</h2>
-        <p>Hear what our satisfied customers have to say about their moving experience</p>
-    </div>
-    
-    <div class="testimonial-slider-container">
-        <div class="testimonial-slider-track" id="testimonialSliderTrack">
-            <div class="testimonial-card" aria-hidden="false">
-                <div class="testimonial-text">
-                  It was a delightful experience again. I had no second thought choosing Gurunanak Relocation because of the commitment, professional behaviour, and quality service.
-Thank you for maintaining the trust level and keeping up the good work.
-100% recommended to others.
-One suggestion, please try open your service to other cities as well.
-
-                </div>
-                <div class="testimonial-author">
-                   
-                    <div class="author-info">
-                        <h4>Vijayendra Singh (Ahmedabad to Raipur)</h4>
-                        <p>Vehicle Relocation</p>
+                <div class="editorial-img-wrapper js-reveal" style="opacity: 0; transform: scale(0.98); filter: blur(4px); transition: all 1.2s ease 0.2s;">
+                    <!-- Parallax image -->
+                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2070&auto=format&fit=crop" alt="Warehouse operations" class="js-parallax" data-speed="0.15" loading="lazy">
+                    
+                    <!-- Overlapping Stat Box -->
+                    <div class="editorial-stats">
+                        <h3 class="js-counter" data-target="5">0</h3>
+                        <p>Years Experience</p>
                     </div>
                 </div>
             </div>
-               <div class="testimonial-card" aria-hidden="true">
-                <div class="testimonial-text">
-                 I was stressful to think of how I managed bike relocation from Ahmedabad to Kolkata. But when I got the recommendations of Gurunanak Relocations through Moving Solutions, I got the trust. They have the best team with them. Also, they maintain transparency. I had no worries about anything. Thank you for offering a seamless experience!
+        </section>
 
+        <!-- Moving Cost Estimator -->
+        <section id="cost-estimator" style="padding: var(--space-200) 0; background: #0a0a0f; position: relative; overflow: hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%, rgba(255,99,0,0.12) 0%,transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(92,15,217,0.12) 0%,transparent 60%);pointer-events:none;"></div>
+            <div class="container" style="position:relative;z-index:1;">
+                <div class="js-reveal" style="text-align:center;margin-bottom:3rem;opacity:0;transform:translateY(20px);transition:all 1s ease;">
+                    <p style="color:var(--primary);font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:0.85rem;margin-bottom:1rem;">Free Instant Tool</p>
+                    <h2 style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:1rem;">Moving Cost Estimator</h2>
+                    <p style="color:rgba(255,255,255,0.6);font-size:1.1rem;max-width:550px;margin:0 auto;">Get a rough price estimate for your move in seconds. Completely free, no commitment required.</p>
                 </div>
-                <div class="testimonial-author">
-                 
-                    <div class="author-info">
-                        <h4>Jagdish Sharma (Ahmedabad to Kolkata)</h4>
-                        <p>Vehicle Relocation</p>
+
+                <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;" id="estimator-grid">
+                    <!-- Inputs Card -->
+                    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:2.5rem;backdrop-filter:blur(10px);">
+                        
+                        <!-- House Size -->
+                        <div style="margin-bottom:2rem;">
+                            <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1rem;">What are you moving?</label>
+                            <div class="est-radio-group" id="group-size">
+                                <button class="est-btn" data-val="3000" onclick="selectEst(this, 'size')"><i class="fas fa-couch"></i> Few Items</button>
+                                <button class="est-btn" data-val="5000" onclick="selectEst(this, 'size')">1 BHK</button>
+                                <button class="est-btn" data-val="9000" onclick="selectEst(this, 'size')">2 BHK</button>
+                                <button class="est-btn" data-val="14000" onclick="selectEst(this, 'size')">3 BHK</button>
+                                <button class="est-btn" data-val="20000" onclick="selectEst(this, 'size')">4+ BHK</button>
+                            </div>
+                        </div>
+
+                        <!-- Distance -->
+                        <div style="margin-bottom:2rem;">
+                            <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1rem;">How far?</label>
+                            <div class="est-radio-group" id="group-distance">
+                                <button class="est-btn" data-val="1.0" onclick="selectEst(this, 'distance')"><i class="fas fa-map-marker-alt"></i> Local (&lt;50km)</button>
+                                <button class="est-btn" data-val="1.5" onclick="selectEst(this, 'distance')">50–200km</button>
+                                <button class="est-btn" data-val="2.2" onclick="selectEst(this, 'distance')">200–500km</button>
+                                <button class="est-btn" data-val="3.0" onclick="selectEst(this, 'distance')">500km+</button>
+                            </div>
+                        </div>
+
+                        <!-- Floor -->
+                        <div style="margin-bottom:2rem;">
+                            <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1rem;">Moving from Floor</label>
+                            <div class="est-radio-group" id="group-floor">
+                                <button class="est-btn active" data-val="0" onclick="selectEst(this, 'floor')">Ground / Lift</button>
+                                <button class="est-btn" data-val="1500" onclick="selectEst(this, 'floor')">No Lift (4th+)</button>
+                            </div>
+                        </div>
+
+                        <!-- Vehicle -->
+                        <div>
+                            <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1rem;">Include Vehicle Transport?</label>
+                            <div class="est-radio-group" id="group-vehicle">
+                                <button class="est-btn active" data-val="0" onclick="selectEst(this, 'vehicle')">None</button>
+                                <button class="est-btn" data-val="2500" onclick="selectEst(this, 'vehicle')"><i class="fas fa-motorcycle"></i> Bike</button>
+                                <button class="est-btn" data-val="6000" onclick="selectEst(this, 'vehicle')"><i class="fas fa-car"></i> Car</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Result Card -->
+                    <div id="est-result-card" style="background:linear-gradient(135deg,rgba(255,99,0,0.15),rgba(92,15,217,0.15));border:1px solid rgba(255,99,0,0.3);border-radius:24px;padding:2.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:280px;backdrop-filter:blur(10px);">
+                        <div id="est-placeholder" style="color:rgba(255,255,255,0.4);">
+                            <i class="fas fa-calculator" style="font-size:3rem;margin-bottom:1rem;display:block;opacity:0.5;"></i>
+                            <p style="font-size:1rem;">Select size and distance to see estimate</p>
+                        </div>
+                        <div id="est-result" style="display:none;width:100%;">
+                            <p style="color:rgba(255,255,255,0.6);font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:0.8rem;">Estimated Cost Range</p>
+                            <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:0.5rem;">
+                                <span style="font-size:1.5rem;color:var(--primary);font-weight:700;">₹</span>
+                                <span id="est-min" style="font-size:3rem;font-weight:900;color:#fff;letter-spacing:-2px;filter:blur(8px);user-select:none;">00000</span>
+                                <span style="color:rgba(255,255,255,0.4);font-size:1.5rem;font-weight:300;">–</span>
+                                <span style="font-size:1.5rem;color:var(--primary);font-weight:700;">₹</span>
+                                <span id="est-max" style="font-size:3rem;font-weight:900;color:#fff;letter-spacing:-2px;filter:blur(8px);user-select:none;">00000</span>
+                            </div>
+                            <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;margin-bottom:0.5rem;">🔒 Unlock your exact quote — it's free!</p>
+                            <p style="color:rgba(255,255,255,0.35);font-size:0.72rem;margin-bottom:1.5rem;">*Exact pricing depends on your specific requirements</p>
+                            <a href="Contactus.html" style="display:inline-flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#ff6300,#5c0fd9);color:#fff;font-weight:700;padding:0.9rem 2rem;border-radius:50px;text-decoration:none;font-size:0.95rem;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 25px rgba(255,99,0,0.4)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+                                Get Exact Quote <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card" aria-hidden="true">
-                <div class="testimonial-text">
-                   Moving from Ahmedabad to Bangalore was stressful until we hired Gurunanak Relocation. Their team packed our entire 3BHK home in just 1.5 days with zero damage. Special thanks to Sachin Sharma and his team for handling our fragile items with care!
-                   It’s a good service of transaction of household goods because it’s safe and reliable which I experienced. We have moved twice through them We also take a service for car and vehicle transportation.
-                </div>
-                <div class="testimonial-author">
-                 
-                    <div class="author-info">
-                        <h4>Neha Kapoor</h4>
-                        <p>Residential Relocation</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card" aria-hidden="true">
-                <div class="testimonial-text">
-                  
-                   It’s a good service of transaction of household goods because it’s safe and reliable which I experienced. We have moved twice through them We also take a service for car and vehicle transportation.
-                </div>
-                <div class="testimonial-author">
-                 
-                    <div class="author-info">
-                        <h4>Karan Luthara</h4>
-                        <p>Home Relocation</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card" aria-hidden="true">
-                <div class="testimonial-text">
-                   Gurunanak Relocation helped me tons with my relocation in my new place. Their services were impeccable and budget-friendly! I’m happy I chose them because this wouldn’t be possible without them.
-                </div>
-                <div class="testimonial-author">
-                 
-                    <div class="author-info">
-                        <h4>Sudheer Panjwani</h4>
-                        <p>Residential Relocation</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="testimonial-slider-nav">
-            <button class="testimonial-slider-arrow" id="testimonialPrev" aria-label="Previous testimonial">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="testimonial-dots" id="testimonialDots"></div>
-            <button class="testimonial-slider-arrow" id="testimonialNext" aria-label="Next testimonial">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-    </div>
-    <script>
-        // Enhanced Testimonial Slider Functionality
-(function() {
-    const track = document.getElementById('testimonialSliderTrack');
-    if (!track) return;
-    
-    const cards = Array.from(track.children);
-    const prevBtn = document.getElementById('testimonialPrev');
-    const nextBtn = document.getElementById('testimonialNext');
-    const dotsContainer = document.getElementById('testimonialDots');
-    
-    let currentIndex = 0;
-    let autoSlideInterval;
-    const slideDuration = 5000; // 5 seconds
-    
-    // Create dot indicators
-    cards.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('testimonial-dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(index));
-        dotsContainer.appendChild(dot);
-    });
-    
-    const dots = Array.from(dotsContainer.children);
-    
-    // Update slider position
-    function updateSlider() {
-        const cardWidth = cards[0].offsetWidth;
-        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-        
-        // Update ARIA attributes
-        cards.forEach((card, index) => {
-            card.setAttribute('aria-hidden', index !== currentIndex);
-        });
-        
-        // Update dot indicators
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
-        });
-    }
-    
-    // Go to specific slide
-    function goToSlide(index) {
-        currentIndex = (index + cards.length) % cards.length;
-        updateSlider();
-        resetAutoSlide();
-    }
-    
-    // Next slide
-    function nextSlide() {
-        goToSlide(currentIndex + 1);
-    }
-    
-    // Previous slide
-    function prevSlide() {
-        goToSlide(currentIndex - 1);
-    }
-    
-    // Auto slide functionality
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, slideDuration);
-    }
-    
-    function resetAutoSlide() {
-        clearInterval(autoSlideInterval);
-        startAutoSlide();
-    }
-    
-    // Event listeners
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        resetAutoSlide();
-    });
-    
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetAutoSlide();
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            prevSlide();
-            resetAutoSlide();
-        } else if (e.key === 'ArrowRight') {
-            nextSlide();
-            resetAutoSlide();
+        </section>
+
+        <style>
+        .est-radio-group { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+        .est-btn {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6);
+            padding: 0.8rem 1.2rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; cursor: pointer;
+            transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem;
         }
-    });
-    
-    // Pause on hover
-    track.addEventListener('mouseenter', () => {
-        clearInterval(autoSlideInterval);
-    });
-    
-    track.addEventListener('mouseleave', startAutoSlide);
-    
-    // Handle window resize
-    window.addEventListener('resize', updateSlider);
-    
-    // Initialize
-    updateSlider();
-    startAutoSlide();
-})();
-    </script>
-</section>
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-bg"></div>
-        <div class="cta-overlay"></div>
-        <h2>Ready for a Stress-Free Move?</h2>
-        <p>Get a free, no-obligation quote today and let us handle your relocation with care and professionalism.</p>
-       <a href="Contactus.html">
-        <button class="cta-button pulse">Get Your Quote</button>
-       </a>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
+        .est-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+        .est-btn.active {
+            background: linear-gradient(135deg, #ff6300, #5c0fd9); border-color: transparent; color: #fff;
+            box-shadow: 0 4px 15px rgba(255,99,0,0.3);
+        }
+        @media (max-width: 800px) {
+            #estimator-grid { grid-template-columns: 1fr !important; }
+        }
+        </style>
+
+        <script>
+        // State
+        const estData = { size: null, distance: null, floor: 0, vehicle: 0 };
+
+        function selectEst(btn, groupName) {
+            // Update active state in UI
+            const group = document.getElementById('group-' + groupName);
+            const buttons = group.querySelectorAll('.est-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update state and calculate
+            estData[groupName] = parseFloat(btn.getAttribute('data-val'));
+            calcEstimate();
+        }
+
+        function calcEstimate() {
+            const placeholder = document.getElementById('est-placeholder');
+            const result = document.getElementById('est-result');
+
+            if (!estData.size || !estData.distance) {
+                placeholder.style.display = 'block';
+                result.style.display = 'none';
+                return;
+            }
+
+            const base = (estData.size * estData.distance) + estData.floor + estData.vehicle;
+            const min = Math.round(base * 0.85 / 100) * 100;
+            const max = Math.round(base * 1.25 / 100) * 100;
+
+            placeholder.style.display = 'none';
+            result.style.display = 'block';
+
+            animateCount(document.getElementById('est-min'), min);
+            animateCount(document.getElementById('est-max'), max);
+        }
+
+        function animateCount(el, target) {
+            let start = 0;
+            const step = target / (700 / 16);
+            const timer = setInterval(() => {
+                start += step;
+                if (start >= target) {
+                    el.textContent = target.toLocaleString('en-IN');
+                    clearInterval(timer);
+                } else {
+                    el.textContent = Math.round(start).toLocaleString('en-IN');
+                }
+            }, 16);
+        }
+        </script>
+
+        <!-- How It Works Timeline -->
+        <section class="timeline-section" style="background: #ffffff; padding-top: var(--space-96);">
+            <div class="container" style="text-align: center; margin-bottom: var(--space-64);">
+                <span class="text-accent text-xs" style="text-transform: uppercase; letter-spacing: 0.2em;">The Process</span>
+                <h2 class="js-split-text">How We Work</h2>
+            </div>
+            
+            <div class="timeline-container" id="timeline-container">
+                <div class="timeline-line">
+                    <div class="timeline-progress" id="timeline-progress"></div>
+                </div>
+                
+                <div class="timeline-item js-timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content js-reveal" style="opacity: 0; transform: translateY(15px) scale(0.98); filter: blur(4px); transition: all 0.8s ease;">
+                        <h3 style="font-size: var(--text-2xl); color: var(--color-primary); margin-bottom: var(--space-8);">01</h3>
+                        <h4 style="margin-bottom: var(--space-8);">Consultation & Planning</h4>
+                        <p class="text-sm">We analyze your requirements and engineer a custom logistics strategy to ensure zero downtime.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item js-timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content js-reveal" style="opacity: 0; transform: translateY(15px) scale(0.98); filter: blur(4px); transition: all 0.8s ease;">
+                        <h3 style="font-size: var(--text-2xl); color: var(--color-primary); margin-bottom: var(--space-8);">02</h3>
+                        <h4 style="margin-bottom: var(--space-8);">Secure Packing</h4>
+                        <p class="text-sm">Using industry-leading materials and techniques, our experts secure every asset for transit.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item js-timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content js-reveal" style="opacity: 0; transform: translateY(15px) scale(0.98); filter: blur(4px); transition: all 0.8s ease;">
+                        <h3 style="font-size: var(--text-2xl); color: var(--color-primary); margin-bottom: var(--space-8);">03</h3>
+                        <h4 style="margin-bottom: var(--space-8);">Monitored Transit</h4>
+                        <p class="text-sm">Real-time GPS tracking and dedicated move managers ensure total visibility en route.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item js-timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content js-reveal" style="opacity: 0; transform: translateY(15px) scale(0.98); filter: blur(4px); transition: all 0.8s ease;">
+                        <h3 style="font-size: var(--text-2xl); color: var(--color-primary); margin-bottom: var(--space-8);">04</h3>
+                        <h4 style="margin-bottom: var(--space-8);">Delivery & Unpacking</h4>
+                        <p class="text-sm">White-glove delivery, complete unpacking, and final inspection to guarantee satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Horizontal Scroll Section (Services) -->
+        <section class="horizontal-section" id="horizontal-section">
+            <div class="horizontal-sticky">
+                <div class="container" style="position: absolute; left: 0; top: 100px; width: 100%; z-index: 10;">
+                    <span class="text-accent text-xs" style="text-transform: uppercase; letter-spacing: 0.2em;">Our Services</span>
+                    <h2 class="text-outline" style="font-size: var(--text-6xl); margin: 0; opacity: 0.3;">SERVICES</h2>
+                    
+                </div>
+                
+                <div class="horizontal-track" id="horizontal-track">
+                    <!-- Spacing offset so first card isn't buried under title -->
+                    <div style="width: 30vw; flex-shrink: 0;"></div>
+                    
+                    <article class="card horizontal-card">
+                        <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--space-24);"><i class="fas fa-boxes"></i></div>
+                        <h3>Professional Packing</h3>
+                        <p>High-quality materials and techniques to ensure your belongings are packed securely for transport.</p>
+                        <a href="Service.html" style="color: var(--color-primary); text-transform: uppercase; font-size: var(--text-xs); letter-spacing: 0.1em; font-weight: 700; margin-top: auto;">Explore <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="card horizontal-card">
+                        <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--space-24);"><i class="fas fa-home"></i></div>
+                        <h3>Residential Relocation</h3>
+                        <p>Designed to ensure a smooth and stress-free moving experience for your home.</p>
+                        <a href="Service.html" style="color: var(--color-primary); text-transform: uppercase; font-size: var(--text-xs); letter-spacing: 0.1em; font-weight: 700; margin-top: auto;">Explore <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="card horizontal-card">
+                        <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--space-24);"><i class="fas fa-building"></i></div>
+                        <h3>Business Relocation</h3>
+                        <p>Efficient and dependable logistics services guaranteeing the safe delivery of your goods.</p>
+                        <a href="Service.html" style="color: var(--color-primary); text-transform: uppercase; font-size: var(--text-xs); letter-spacing: 0.1em; font-weight: 700; margin-top: auto;">Explore <i class="fas fa-arrow-right"></i></a>
+                    </article>
+                    
+                    <article class="card horizontal-card">
+                        <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--space-24);"><i class="fas fa-car"></i></div>
+                        <h3>Vehicle Relocation</h3>
+                        <p>Our expert handling, secure transport, and real-time tracking ensure your vehicle reaches its destination damage-free and on time.</p>
+                        <a href="Service.html" style="color: var(--color-primary); text-transform: uppercase; font-size: var(--text-xs); letter-spacing: 0.1em; font-weight: 700; margin-top: auto;">Explore <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="card horizontal-card">
+                        <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--space-24);"><i class="fas fa-couch"></i></div>
+                        <h3>Furniture Relocation</h3>
+                        <p>Relocating furniture? Our experienced team excels in careful and efficient furniture moving. Allow us to take care of the heavy lifting for you.</p>
+                        <a href="Service.html" style="color: var(--color-primary); text-transform: uppercase; font-size: var(--text-xs); letter-spacing: 0.1em; font-weight: 700; margin-top: auto;">Explore <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="card horizontal-card">
+                        <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--space-24);"><i class="fas fa-plane"></i></div>
+                        <h3>Air Shipments</h3>
+                        <p>Ensure swift, secure and seamless air cargo delivery worldwide. With expert handling and real-time tracking, your goods arrive on time, every time.</p>
+                        <a href="Service.html" style="color: var(--color-primary); text-transform: uppercase; font-size: var(--text-xs); letter-spacing: 0.1em; font-weight: 700; margin-top: auto;">Explore <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="card horizontal-card">
+                        <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--space-24);"><i class="fas fa-warehouse"></i></div>
+                        <h3>Reliable Storage Solutions</h3>
+                        <p>Looking for temporary storage for your items? Our secure storage solutions provide a safe and easily accessible option.</p>
+                        <a href="Service.html" style="color: var(--color-primary); text-transform: uppercase; font-size: var(--text-xs); letter-spacing: 0.1em; font-weight: 700; margin-top: auto;">Explore <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="card horizontal-card">
+                        <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--space-24);"><i class="fas fa-palette"></i></div>
+                        <h3>Fine Art Relocation</h3>
+                        <p>Our tailored crating, climate-controlled transportation, and professional handling guarantee that your valuables reach their destination perfectly.</p>
+                        <a href="Service.html" style="color: var(--color-primary); text-transform: uppercase; font-size: var(--text-xs); letter-spacing: 0.1em; font-weight: 700; margin-top: auto;">Explore <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <!-- Spacer at the end so last card reaches center -->
+                    <div style="width: 30vw; flex-shrink: 0;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Network Map -->
+        <section style="padding: var(--space-160) 0; background: #0f172a; color: #ffffff; overflow: hidden; position: relative;">
+            <div class="container" style="text-align: center; position: relative; z-index: 2; margin-bottom: var(--space-64);">
+                <h2 class="js-split-text" style="color: #ffffff;">Operating on a PAN India Scale.</h2>
+            </div>
+            
+            <!-- Map Placeholder / Background -->
+            <div style="position: relative; width: 100%; max-width: 800px; margin: 0 auto; height: 700px; border-radius: var(--radius-lg);">
+                
+                <!-- SVG Map Background -->
+                <div class="india-map-bg"></div>
+
+                <!-- City Markers (using dots) -->
+                <!-- Delhi -->
+                <div class="map-dot-marker" style="top: 28%; left: 35%;">
+                    <div class="dot-core"></div>
+                    <span class="city-label">Delhi</span>
+                </div>
+                <!-- Gurugram -->
+                <div class="map-dot-marker" style="top: 30%; left: 33%;">
+                    <div class="dot-core"></div>
+                    <span class="city-label">Gurugram</span>
+                </div>
+                <!-- Ahmedabad -->
+                <div class="map-dot-marker" style="top: 48%; left: 22%;">
+                    <div class="dot-core"></div>
+                    <span class="city-label">Ahmedabad</span>
+                </div>
+                <!-- Surat -->
+                <div class="map-dot-marker" style="top: 53%; left: 23%;">
+                    <div class="dot-core"></div>
+                    <span class="city-label">Surat</span>
+                </div>
+                <!-- Mumbai -->
+                <div class="map-dot-marker" style="top: 61%; left: 23%;">
+                    <div class="dot-core"></div>
+                    <span class="city-label">Mumbai</span>
+                </div>
+                <!-- Pune -->
+                <div class="map-dot-marker" style="top: 63%; left: 26%;">
+                    <div class="dot-core"></div>
+                    <span class="city-label">Pune</span>
+                </div>
+                <!-- Bangalore -->
+                <div class="map-dot-marker" style="top: 78%; left: 38%;">
+                    <div class="dot-core"></div>
+                    <span class="city-label">Bangalore</span>
+                </div>
+            </div>
+            
+            <style>
+            .india-map-bg {
+                background: url('assets/images/india-map.svg') no-repeat center center;
+                background-size: contain;
+                /* Clear map visibility for dark theme */
+                filter: invert(1) brightness(1.5) opacity(0.6);
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+            }
+            .map-dot-marker {
+                position: absolute;
+                transform: translate(-50%, -50%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                z-index: 10;
+            }
+            .map-dot-marker .dot-core {
+                width: 14px;
+                height: 14px;
+                background: #ff6300;
+                border-radius: 50%;
+                box-shadow: 0 0 0 0 rgba(255, 99, 0, 0.7);
+                animation: pulse-dot 2s infinite ease-in-out;
+            }
+            .map-dot-marker .city-label {
+                opacity: 0;
+                transform: translateY(10px);
+                background: rgba(10, 15, 28, 0.95);
+                color: #fff;
+                padding: 4px 12px;
+                border-radius: 4px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                margin-top: 8px;
+                transition: all 0.3s ease;
+                pointer-events: none;
+                border: 1px solid rgba(255,99,0,0.3);
+                white-space: nowrap;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            }
+            .map-dot-marker:hover {
+                z-index: 20;
+            }
+            .map-dot-marker:hover .dot-core {
+                background: #fff;
+                box-shadow: 0 0 15px rgba(255,99,0,1);
+                animation: none;
+            }
+            .map-dot-marker:hover .city-label {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            @keyframes pulse-dot {
+                0% { box-shadow: 0 0 0 0 rgba(255, 99, 0, 0.7); }
+                70% { box-shadow: 0 0 0 12px rgba(255, 99, 0, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(255, 99, 0, 0); }
+            }
+            @media (max-width: 768px) {
+                .india-map-bg {
+                    background-size: 100% auto;
+                }
+                .map-logo-marker img {
+                    width: 24px;
+                }
+            }
+            </style>
+        </section>
+
+                <!-- Ultra Premium Glassmorphic Testimonials -->
+        <section class="premium-testimonials-section" style="padding: var(--space-160) 0; position: relative; background: #0a0f1c; overflow: hidden;">
+            <!-- Ambient Background Effects -->
+            <div style="position: absolute; top: -20%; left: -10%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(92,15,217,0.15) 0%, transparent 70%); filter: blur(60px); z-index: 0;"></div>
+            <div style="position: absolute; bottom: -20%; right: -10%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(255,99,0,0.1) 0%, transparent 70%); filter: blur(60px); z-index: 0;"></div>
+            
+            <div class="container" style="position: relative; z-index: 1; margin-bottom: var(--space-96); text-align: center;">
+                <span class="text-accent text-xs" style="text-transform: uppercase; letter-spacing: 0.2em; display: inline-block; margin-bottom: var(--space-16);">Testimonials</span>
+                <h2 class="js-split-text" style="color: #ffffff; font-size: var(--text-5xl);">What Our Clients Say</h2>
+            </div>
+                <div class="container" style="position: relative; z-index: 1;">
+                <div class="testimonial-masonry" id="dynamic-testimonials">
+                    <!-- Loading State -->
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 4rem; color: rgba(255,255,255,0.6);">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem;"></i>
+                        <p>Loading the latest reviews...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // This URL needs to be updated by the user after deploying their new Apps Script!
+            const TESTIMONIALS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxN81mAbErYVr-2lTm8QdjidI-TIWBxnXL0sDm2E6EqHp9BXSurJdDwgWT8R4pWtnCWg/exec';
+
+            async function loadTestimonials() {
+                const container = document.getElementById('dynamic-testimonials');
+                
+                // If URL is not set, show fallback text
+                if (TESTIMONIALS_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+                    container.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem; color: #f56565;">
+                            <i class="fas fa-exclamation-circle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                            <p>Testimonials script URL not configured yet.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                try {
+                    const response = await fetch(TESTIMONIALS_SCRIPT_URL);
+                    const data = await response.json();
+
+                    if (data.result === 'success' && data.testimonials.length > 0) {
+                        container.innerHTML = ''; // Clear loading
+                        
+                        data.testimonials.forEach((testi, index) => {
+                            // Generate stars
+                            let starsHtml = '';
+                            const rating = parseInt(testi.rating) || 5;
+                            for(let i=0; i<5; i++) {
+                                starsHtml += `<i class="fas fa-star" style="color: ${i < rating ? '#f59e0b' : 'rgba(255,255,255,0.2)'}"></i>`;
+                            }
+                            
+                            // Pick a gradient based on index
+                            const gradients = [
+                                'linear-gradient(135deg, var(--color-primary), #ff8c00)',
+                                'linear-gradient(135deg, var(--color-secondary), #8b3dff)',
+                                'linear-gradient(135deg, #0f172a, #334155)'
+                            ];
+                            const avatarBg = gradients[index % gradients.length];
+
+                            const card = `
+                                <div class="testi-card-glass js-reveal" style="opacity: 1; transform: none; filter: none; transition-delay: ${index * 0.1}s;">
+                                    <div class="testi-quote-icon">"</div>
+                                    <div class="testimonial-stars" style="margin-bottom: 1rem;">${starsHtml}</div>
+                                    <p class="testi-text">${testi.text}</p>
+                                    <div class="testi-author">
+                                        <div class="testi-avatar" style="background: ${avatarBg};">${testi.initials || 'GR'}</div>
+                                        <div>
+                                            <h4>${testi.name}</h4>
+                                            <span>${testi.service || 'Relocation Client'}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            container.insertAdjacentHTML('beforeend', card);
+                        });
+                    } else {
+                        container.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; color: rgba(255,255,255,0.5);">No reviews found yet.</div>`;
+                    }
+                } catch (error) {
+                    console.error("Failed to fetch testimonials", error);
+                    container.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; color: rgba(255,255,255,0.5);">Could not load reviews at this time.</div>`;
+                }
+            }
+
+            // Load on page load
+            document.addEventListener('DOMContentLoaded', loadTestimonials);
+        </script>
+
+        <!-- Final CTA -->
+        <section style="padding: var(--space-200) 0; text-align: center; background: radial-gradient(circle at center, rgba(255,99,0,0.1) 0%, transparent 50%);">
+            <div class="container js-reveal" style="opacity: 0; transform: translateY(15px) scale(0.98); filter: blur(4px); transition: all 1.2s ease;">
+                <h2 class="js-split-text" style="font-size: var(--text-6xl);">Ready for a smooth move?</h2>
+                <p style="margin: var(--space-32) auto; max-width: 600px; color: var(--color-text-muted); font-size: var(--text-xl);">Contact us today for a free quote and let us handle the heavy lifting for you.</p>
+                <a href="Contactus.html" class="btn btn-primary" style="padding: 1.5rem 4rem; font-size: var(--text-xl);">Get a Free Quote</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
         <div class="footer-container">
             <div class="footer-about">
                 <div class="footer-logo">Gurunanak <span>Relocation</span></div>
@@ -1471,7 +1388,7 @@ One suggestion, please try open your service to other cities as well.
             </div>
             <div class="footer-links">
                 <h3>Quick Links</h3>
-               <ul>
+              <ul>
                     <li><a href="index.html" active>Home</a></li>
                     <li><a href="Service.html">Services</a></li>
                     <li><a href="AboutUs.html">About Us</a></li>
@@ -1481,107 +1398,152 @@ One suggestion, please try open your service to other cities as well.
             <div class="footer-links">
                 <h3>Our Services</h3>
                 <ul>
-                <li>Residential Moving</a></li> <li>Commercial Moving</a></li> <li>Packing Services</a></li> <li>Storage Solutions</a></li> <li>International Relocation</a></li> </ul> </div> <div class="footer-contact"> <h3>Contact Us</h3> <p><i class="fas fa-map-marker-alt"></i> B/09, 1st Floor, Hari Darshan Shopping Center, Mony Hotel Rd, Isanpur, Ahmedabad, Gujarat 382405</p> <p><i class="fas fa-phone"></i> +91 75749 41313 </p> <p><i class="fas fa-envelope"></i> hello@gnrelocation.in</p> <p><i class="fas fa-clock"></i> Mon-Sun: 10:00 AM - 9:00 PM</p> </div> </div> <div class="footer-bottom"> <p>&copy; 2025 Gurunanak Relocation. All Rights Reserved. </div> 
+                <li>Residential Moving</a></li> <li>Commercial Moving</a></li> <li>Packing Services</a></li> <li>Storage Solutions</a></li> </ul> </div> <div class="footer-contact"> <h3>Contact Us</h3> <p><i class="fas fa-map-marker-alt"></i> B/09, 1st Floor, Hari Darshan Shopping Center, Mony Hotel Rd, Isanpur, Ahmedabad, Gujarat 382405</p> <p><i class="fas fa-phone"></i> +91 75749 41313</p> <p><i class="fas fa-envelope"></i> hello@gnrelocation.in</p> <p><i class="fas fa-clock"></i> Mon-Sun: 10:00 AM - 9:00 PM</p> </div> </div> <div class="footer-bottom"> <p>&copy; 2025 Gurunanak Relocation. All Rights Reserved. </div> 
     </footer>
-<!-- Back to Top Button -->
-<div class="back-to-top" id="backToTop">
-    <i class="fas fa-arrow-up"></i>
-</div>
 
-<script>
-    // Mobile Menu Toggle
-    const mobileMenu = document.getElementById('mobileMenu');
-    const nav = document.getElementById('nav');
+    </main>
+
+    <!-- Global JS -->
+    <script src="assets/js/smooth-scroll.js"></script>
+    <script src="assets/js/animations.js"></script>
     
-    mobileMenu.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        mobileMenu.innerHTML = nav.classList.contains('active') ? 
-            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-    });
-
-    // Header Scroll Effect
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // Back to Top Button
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.classList.add('active');
-        } else {
-            backToTop.classList.remove('active');
-        }
-    });
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // Simple horizontal slider for services section (mobile only)
-    function isMobile() {
-        return window.innerWidth <= 576;
-    }
-    function updateServiceSliderNav() {
-        const nav = document.getElementById('serviceSliderNav');
-        nav.style.display = isMobile() ? 'flex' : 'none';
-    }
-    updateServiceSliderNav();
-    window.addEventListener('resize', updateServiceSliderNav);
-
-    const servicesGrid = document.getElementById('servicesGrid');
-    const serviceCards = servicesGrid ? Array.from(servicesGrid.children) : [];
-    let serviceIndex = 0;
-
-    function scrollToService(idx) {
-        if (!isMobile() || !serviceCards.length) return;
-        serviceIndex = Math.max(0, Math.min(idx, serviceCards.length - 1));
-        serviceCards[serviceIndex].scrollIntoView({ behavior: 'smooth', inline: 'center' });
-    }
-
-    document.getElementById('servicePrev').addEventListener('click', () => {
-        scrollToService(serviceIndex - 1);
-    });
-    document.getElementById('serviceNext').addEventListener('click', () => {
-        scrollToService(serviceIndex + 1);
-    });
-
-    // Update index on scroll
-    if (servicesGrid) {
-        servicesGrid.addEventListener('scroll', () => {
-            if (!isMobile()) return;
-            let minDiff = Infinity;
-            let idx = 0;
-            serviceCards.forEach((card, i) => {
-                const rect = card.getBoundingClientRect();
-                const diff = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
-                if (diff < minDiff) {
-                    minDiff = diff;
-                    idx = i;
-                }
-            });
-            serviceIndex = idx;
-        });
-    }
-
-    ;
-</script>
-</body>
+    <!-- Page Specific JS -->
     <script>
-if (window.history && window.history.pushState) {
-  let path = window.location.pathname;
-  if (path.endsWith(".html")) {
-    let cleanPath = path.replace(/\.html$/, "");
-    window.history.replaceState({}, document.title, cleanPath);
-  }
-}
-</script>
+        document.addEventListener('DOMContentLoaded', () => {
+                  // Horizontal Scroll & JS Sticky Logic
+            const horizontalSection = document.getElementById('horizontal-section');
+            const horizontalTrack = document.getElementById('horizontal-track');
+            const horizontalSticky = document.querySelector('.horizontal-sticky');
+            
+            if(horizontalSection && horizontalTrack && horizontalSticky) {
+                window.addEventListener('smoothscroll', (e) => {
+                    const rect = horizontalSection.getBoundingClientRect();
+                    
+                    // When the section reaches the top of the viewport
+                    if(rect.top <= 0 && rect.bottom >= window.innerHeight) {
+                        // JS Pinning: Move sticky container down to counteract scroll
+                        horizontalSticky.style.transform = `translateY(${Math.abs(rect.top)}px)`;
 
+                        // Calculate percentage scrolled through the pinned section
+                        const progress = Math.abs(rect.top) / (rect.height - window.innerHeight);
+                        
+                        // Calculate total distance to move horizontally
+                        const maxScrollLeft = horizontalTrack.scrollWidth - window.innerWidth;
+                        const translateX = -(progress * maxScrollLeft);
+                        
+                        horizontalTrack.style.transform = `translate3d(${translateX}px, 0, 0)`;
+
+                    } else if (rect.top > 0) {
+                        // Before section
+                        horizontalSticky.style.transform = `translateY(0px)`;
+                        horizontalTrack.style.transform = `translate3d(0, 0, 0)`;
+                    } else if (rect.bottom < window.innerHeight) {
+                        // After section
+                        const maxPin = rect.height - window.innerHeight;
+                        horizontalSticky.style.transform = `translateY(${maxPin}px)`;
+                        const maxScrollLeft = horizontalTrack.scrollWidth - window.innerWidth;
+                        horizontalTrack.style.transform = `translate3d(-${maxScrollLeft}px, 0, 0)`;
+                    }
+                });
+            }
+            
+      // Re-implement Number Counter for the new class structure
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / 100;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(() => animateCounter(counter), 20);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const counters = document.querySelectorAll('.js-counter');
+            counters.forEach(c => counterObserver.observe(c));
+
+            // Small animation for scroll indicator
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes scroll-down {
+                    0% { transform: translateY(-100%); }
+                    50% { transform: translateY(0%); }
+                    100% { transform: translateY(100%); }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenu');
+            const navMenu = document.getElementById('nav');
+            
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                });
+            }
+        });
+
+
+        // Header Scroll Effect with popup animation
+        const header = document.getElementById('header');
+        
+        // Force scroll to top on load
+        window.scrollTo(0, 0);
+        setTimeout(() => window.scrollTo(0, 0), 50); // Fallback for some browsers
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                header.classList.add('home-popup-active');
+            } else {
+                header.classList.remove('scrolled');
+                header.classList.remove('home-popup-active');
+            }
+        });
+    </script>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/917574941313?text=Hi,%20I%20would%20like%20to%20get%20a%20quote%20for%20my%20move." target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <style>
+    .whatsapp-float { position: fixed; bottom: 30px; right: 90px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4); z-index: 100; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease; animation: bounce-wa 2s infinite; }
+    .whatsapp-float:hover { background-color: #128C7E; color: #fff; transform: scale(1.1); box-shadow: 0px 6px 20px rgba(37, 211, 102, 0.6); }
+    @keyframes bounce-wa { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+    @media (max-width: 768px) { .whatsapp-float { bottom: 20px; right: 80px; width: 50px; height: 50px; font-size: 25px; } }
+    </style>
+    <!-- Exit-Intent Popup -->
+    <div id="exitIntentOverlay" class="exit-overlay" style="display: none;">
+        <div class="exit-modal glass-card">
+            <button class="exit-close-btn" id="exitCloseBtn"><i class="fas fa-times"></i></button>
+            <div class="exit-content">
+                <div class="exit-icon"><i class="fas fa-gift"></i></div>
+                <h2 style="font-size: var(--text-3xl); margin-bottom: 0.5rem; color: #fff;">Wait! Don't leave yet.</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: 1.5rem; font-size: var(--text-lg);">Enter your email to instantly get <strong>10% off</strong> your first move with Gurunanak Relocation.</p>
+                <form id="exitIntentForm" class="exit-form">
+                    <input type="email" id="exitEmail" name="email" placeholder="Your Email Address" required>
+                    <button type="submit" id="exitSubmitBtn" class="btn btn-primary">Claim 10% Discount</button>
+                </form>
+                <div id="exitFormStatus" style="display: none; margin-top: 1rem; text-align: center;"></div>
+                <p class="exit-disclaimer" id="exitNoThanks" style="margin-top: 1rem; cursor: pointer; color: rgba(255,255,255,0.5); font-size: 0.8rem; text-decoration: underline;">No thanks, I prefer paying full price.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/exit-intent.js"></script>
+</body>
 </html>

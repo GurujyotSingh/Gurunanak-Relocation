@@ -1,0 +1,158 @@
+/**
+ * Global CSS Variables
+ * Architecture: Cinematic Luxury Logistics (Dark Theme)
+ */
+
+ :root {
+    /* Legacy Theme Variables (For About/Contact/Header compatibility) */
+    --primary: #ff6300;
+    --primary-light: rgba(255, 99, 0, 0.1);
+    --secondary: #5c0fd9;
+    --secondary-light: rgba(92, 15, 217, 0.1);
+    --dark: #1a1a1a;
+    --dark-80: rgba(26, 26, 26, 0.8);
+    --light: #f8f9fa;
+    --light-90: rgba(248, 249, 250, 0.9);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    --border-radius: 12px;
+    --border-radius-lg: 24px;
+    /* Color System (Premium Light Theme) */
+    --color-bg: #fafafa;            /* Clean off-white background */
+    --color-bg-elevated: #ffffff;   /* Pure white for cards */
+    --color-bg-glass: rgba(255, 255, 255, 0.7); /* Apple-style light glass */
+    
+    --color-primary: #ff6300;       /* Brand Orange Accent */
+    --color-primary-glow: rgba(255, 99, 0, 0.2); 
+    
+    --color-secondary: #5c0fd9;     /* Brand Purple Accent */
+    --color-secondary-light: #f3ebff;
+    
+    --color-text-main: #0f172a;     /* Deep slate/black for max contrast */
+    --color-text-muted: #64748b;    /* Medium slate for secondary text */
+    
+    /* Typography Scale */
+    --font-heading: 'Inter', sans-serif; /* Switching back to clean sans-serif for modern tech/logistics feel */
+    --font-body: 'Manrope', sans-serif;
+    
+    --text-xs: 0.8rem;
+    --text-sm: 0.889rem;
+    --text-base: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.563rem;
+    --text-2xl: 1.953rem;
+    --text-3xl: 2.441rem;
+    --text-4xl: 3.052rem;
+    --text-5xl: 4.5rem;  /* Oversized for hero */
+    --text-6xl: 6rem;    /* Massive editorial typography */
+
+    /* Spacing System */
+    --space-4: 0.25rem;
+    --space-8: 0.5rem;
+    --space-12: 0.75rem;
+    --space-16: 1rem;
+    --space-24: 1.5rem;
+    --space-32: 2rem;
+    --space-48: 3rem;
+    --space-64: 4rem;
+    --space-96: 6rem;
+    --space-128: 8rem;
+    --space-160: 10rem;
+    --space-200: 15rem;
+
+    /* Layout & Containers */
+    --container-max: 1440px;
+    --container-padding: max(2rem, 5vw);
+
+    /* Shadows & Glows */
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-glass: 0 20px 40px rgba(0, 0, 0, 0.06);
+    --glow-primary: 0 0 20px rgba(255, 99, 0, 0.15), 0 0 40px rgba(255, 99, 0, 0.05);
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-fast: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-normal: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* Z-Index */
+    --z-background: -10;
+    --z-base: 1;
+    --z-elevated: 10;
+    --z-header: 100;
+    --z-cursor: 9999; /* Custom cursor on top */
+}
+
+/* Scroll Engine Styles */
+html.has-smooth-scroll {
+    /* Allow native scroll to calculate height */
+}
+
+html.has-smooth-scroll body {
+    /* JS sets height here */
+}
+
+html.has-smooth-scroll #scroll-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    will-change: transform;
+    /* Hide scrollbar visually but keep mechanics */
+}
+
+/* Responsive Variable Scaling */
+@media (max-width: 1024px) {
+    :root {
+        --text-4xl: 2.5rem;
+        --text-5xl: 3.5rem;
+        --text-6xl: 4.5rem;
+        --space-64: 3rem;
+        --space-96: 4rem;
+        --space-128: 6rem;
+        --space-160: 7rem;
+        --space-200: 10rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --text-2xl: 1.5rem;
+        --text-3xl: 2rem;
+        --text-4xl: 2.2rem;
+        --text-5xl: 2.8rem;
+        --text-6xl: 3.2rem;
+        --space-32: 1.5rem;
+        --space-48: 2rem;
+        --space-64: 2.5rem;
+        --space-96: 3rem;
+        --space-128: 4rem;
+        --space-160: 5rem;
+        --space-200: 7rem;
+        --container-padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --text-3xl: 1.8rem;
+        --text-4xl: 2rem;
+        --text-5xl: 2.2rem;
+        --text-6xl: 2.5rem;
+        --space-32: 1.5rem;
+        --space-48: 1.5rem;
+        --space-64: 2rem;
+        --space-96: 2.5rem;
+        --space-128: 3rem;
+        --space-160: 4rem;
+        --space-200: 5rem;
+        --container-padding: 1rem;
+    }
+}
+
