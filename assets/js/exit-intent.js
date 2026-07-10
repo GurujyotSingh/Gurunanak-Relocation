@@ -68,10 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             fetch(googleScriptURL, {
                 method: "POST",
+                mode: "no-cors",
                 body: formData
             })
-            .then(res => res.json())
-            .then(data => {
+            .then(() => {
                 form.style.display = "none";
                 statusDiv.style.display = "block";
                 statusDiv.style.color = "#25d366";
