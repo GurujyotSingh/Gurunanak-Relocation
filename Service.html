@@ -756,7 +756,7 @@
         @media (max-width: 768px) {
             /* Section becomes a tall scroll track */
             .services-section {
-                height: 500vh !important;
+                height: 800vh !important;
                 position: relative !important;
                 overflow-x: clip !important;
                 padding: 0 !important;
@@ -2379,6 +2379,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid     = section.querySelector('.services-grid');
     const cards    = Array.from(section.querySelectorAll('.service-card'));
     const total    = cards.length;
+
+    // Remove wow classes to prevent animation conflicts
+    cards.forEach(card => card.classList.remove('wow-reveal', 'wow-card'));
 
     // Inject dot indicators
     const counter = document.createElement('div');

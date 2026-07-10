@@ -901,7 +901,7 @@
                             <div class="est-step active" id="step-1">
                                 <h3 style="color:#fff; font-size:1.2rem; margin-bottom:1.5rem; font-weight:600;">Where are you moving?</h3>
                                 <!-- Location Selection -->
-                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; position:relative; z-index:50;">
+                            <div class="step-1-pickers" style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; position:relative; z-index:50;">
                                 <div class="city-picker-wrapper" id="from-picker">
                                     <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;">Moving From</label>
                                     <div class="city-input-box" id="from-box" onclick="toggleCityDropdown('from-dropdown', event)">
@@ -1060,19 +1060,26 @@
                             <p style="font-size:1rem;">Select size and distance to see estimate</p>
                         </div>
                         <div id="est-result" style="display:none;width:100%;">
-                            <p style="color:rgba(255,255,255,0.6);font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:0.8rem;">Estimated Cost Range</p>
-                            <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:0.5rem;">
-                                <span style="font-size:1.5rem;color:var(--primary);font-weight:700;">₹</span>
-                                <span id="est-min" style="font-size:3rem;font-weight:900;color:#fff;letter-spacing:-2px;filter:blur(8px);user-select:none;">00000</span>
-                                <span style="color:rgba(255,255,255,0.4);font-size:1.5rem;font-weight:300;">–</span>
-                                <span style="font-size:1.5rem;color:var(--primary);font-weight:700;">₹</span>
-                                <span id="est-max" style="font-size:3rem;font-weight:900;color:#fff;letter-spacing:-2px;filter:blur(8px);user-select:none;">00000</span>
+                            <p style="color:rgba(255,255,255,0.9);font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;">Almost there!</p>
+                            <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:1.5rem;" id="unlock-hint">Please provide your details below and our team will contact you with an accurate quote.</p>
+                            
+                            <!-- Hidden elements for backend calculation -->
+                            <span id="est-min" style="display:none;"></span>
+                            <span id="est-max" style="display:none;"></span>
+                            
+                            <div id="estimator-lead-form-container" style="margin-top:1rem; width:100%; max-width:400px; margin-left:auto; margin-right:auto;">
+                                <form id="estimatorLeadForm" style="display:flex; flex-direction:column; gap:0.8rem;">
+                                    <input type="text" id="estName" name="name" placeholder="Full Name" required style="width:100%; padding:0.8rem 1.2rem; border-radius:12px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; font-family:inherit;">
+                                    <input type="email" id="estEmail" name="email" placeholder="Email Address" required style="width:100%; padding:0.8rem 1.2rem; border-radius:12px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; font-family:inherit;">
+                                    <input type="tel" id="estPhone" name="phone" placeholder="Phone Number" required style="width:100%; padding:0.8rem 1.2rem; border-radius:12px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; font-family:inherit;">
+                                    
+                                    <button type="submit" id="estSubmitBtn" style="display:flex;align-items:center;justify-content:center;gap:0.6rem;background:linear-gradient(135deg,#ff6300,#5c0fd9);color:#fff;font-weight:700;padding:1rem;border-radius:50px;border:none;cursor:pointer;font-size:1rem;transition:all 0.3s;margin-top:0.5rem;box-shadow:0 10px 25px rgba(255,99,0,0.3);">
+                                        <span id="estBtnText">Request Quote</span> <i class="fas fa-paper-plane" id="estBtnIcon"></i>
+                                        <div class="spinner" id="estSpinner" style="display:none; width:20px; height:20px; border:2px solid rgba(255,255,255,0.3); border-top-color:#fff; border-radius:50%; animation:spin 1s linear infinite;"></div>
+                                    </button>
+                                </form>
+                                <div id="estStatus" style="display:none; color:#25d366; font-size:0.95rem; font-weight:600; margin-top:1rem; padding:1rem; background:rgba(37,211,102,0.1); border:1px solid #25d366; border-radius:12px;"></div>
                             </div>
-                            <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;margin-bottom:0.5rem;">🔒 Unlock your exact quote — it's free!</p>
-                            <p style="color:rgba(255,255,255,0.35);font-size:0.72rem;margin-bottom:1.5rem;">*Exact pricing depends on your specific requirements</p>
-                            <a href="Contactus.html" style="display:inline-flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#ff6300,#5c0fd9);color:#fff;font-weight:700;padding:0.9rem 2rem;border-radius:50px;text-decoration:none;font-size:0.95rem;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 25px rgba(255,99,0,0.4)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-                                Get Exact Quote <i class="fas fa-arrow-right"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -1148,7 +1155,14 @@
 
         @media (max-width: 800px) {
             #estimator-grid { grid-template-columns: 1fr !important; }
-            .city-dropdown { width: 100%; max-width: 340px; }
+            .city-dropdown { width: 100%; max-width: 100%; }
+            .step-1-pickers { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 600px) {
+            .popular-grid { grid-template-columns: repeat(3, 1fr) !important; }
+        }
+        @media (max-width: 400px) {
+            .popular-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
 
         /* Wizard Styles */
@@ -1394,12 +1408,16 @@
             const min = Math.round((finalBase * 0.85) / 100) * 100;
             const max = Math.round((finalBase * 1.20) / 100) * 100;
 
+            document.getElementById('est-min').textContent = min.toLocaleString('en-IN');
+            document.getElementById('est-max').textContent = max.toLocaleString('en-IN');
+            
+            if(!window.estUnlocked) {
+                document.getElementById('est-min').style.filter = 'blur(8px)';
+                document.getElementById('est-max').style.filter = 'blur(8px)';
+            }
+
             placeholder.style.display = 'none';
             result.style.display = 'block';
-
-            animateCount(document.getElementById('est-min'), min);
-            animateCount(document.getElementById('est-max'), max);
-        }
 
         function animateCount(el, target) {
             let start = 0;
@@ -1413,7 +1431,63 @@
                     el.textContent = Math.round(start).toLocaleString('en-IN');
                 }
             }, 16);
-        }
+        }}
+
+        // Estimator Form Submission
+        document.getElementById('estimatorLeadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btnText = document.getElementById('estBtnText');
+            const btnIcon = document.getElementById('estBtnIcon');
+            const spinner = document.getElementById('estSpinner');
+            const submitBtn = document.getElementById('estSubmitBtn');
+            const statusDiv = document.getElementById('estStatus');
+            const formContainer = document.getElementById('estimatorLeadForm');
+            
+            submitBtn.disabled = true;
+            btnText.style.display = 'none';
+            btnIcon.style.display = 'none';
+            spinner.style.display = 'block';
+            
+            const formData = new FormData();
+            formData.append('name', document.getElementById('estName').value);
+            formData.append('email', document.getElementById('estEmail').value);
+            formData.append('phone', document.getElementById('estPhone').value);
+            
+            const min = document.getElementById('est-min').textContent;
+            const max = document.getElementById('est-max').textContent;
+            let message = `Estimator Lead Details:\n\n`;
+            message += `From: ${cityData.from}\n`;
+            message += `To: ${cityData.to}\n`;
+            message += `Distance: ${estData.distance} KM\n`;
+            message += `Estimated Quote: ₹${min} - ₹${max}\n`;
+            
+            formData.append('message', message);
+            formData.append('form_type', 'estimator_lead');
+            
+            const googleScriptURL = 'https://script.google.com/macros/s/AKfycbyxN81mAbErYVr-2lTm8QdjidI-TIWBxnXL0sDm2E6EqHp9BXSurJdDwgWT8R4pWtnCWg/exec';
+            
+            fetch(googleScriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            })
+            .then(() => {
+                formContainer.style.display = 'none';
+                document.getElementById('unlock-hint').style.display = 'none';
+                statusDiv.style.display = 'block';
+                statusDiv.innerHTML = "Success! Our team will contact you shortly.";
+                
+                window.estUnlocked = true;
+            })
+            .catch(err => {
+                submitBtn.disabled = false;
+                btnText.style.display = 'inline-block';
+                btnIcon.style.display = 'inline-block';
+                spinner.style.display = 'none';
+                alert("Something went wrong. Please try again.");
+            });
+        });
         </script>
 
         <!-- How It Works Timeline -->
@@ -1935,4 +2009,5 @@
     <!-- Scripts -->
     <script src="assets/js/exit-intent.js"></script>
 </body>
+
 </html>

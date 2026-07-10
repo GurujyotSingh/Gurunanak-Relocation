@@ -238,12 +238,12 @@
     flex-direction: column;
 }
 
-/* White base */
+/* Dark base */
 .google-form-container::after {
     content: '';
     position: absolute;
     inset: 4px;
-    background: #fff;
+    background: #0f172a;
     border-radius: 24px;
     z-index: 0;
 }
@@ -274,7 +274,7 @@
     z-index: 1;
     border-radius: 24px;
     padding: 3rem 2.5rem;
-    background: #fff;
+    background: transparent;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -293,9 +293,11 @@
 }
 
 .form-group label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    color: #4a5568;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .form-group input,
@@ -303,12 +305,12 @@
 .form-group textarea {
     width: 100%;
     padding: 1rem 1.2rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 12px;
-    background: #f8fafc;
+    background: rgba(255,255,255,0.05);
     font-size: 1rem;
     font-family: inherit;
-    color: #1a202c;
+    color: #fff;
     transition: all 0.3s ease;
 }
 
@@ -322,8 +324,22 @@
 .form-group textarea:focus {
     outline: none;
     border-color: #ff6300;
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(255, 99, 0, 0.15);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 0 3px rgba(255, 99, 0, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group select::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255,255,255,0.3);
+}
+
+.form-group select {
+    color: rgba(255,255,255,0.7);
+}
+.form-group select option {
+    background: #0f172a;
+    color: #fff;
 }
 
 .star-rating {
