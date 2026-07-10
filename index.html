@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="has-smooth-scroll">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1061,16 +1061,14 @@
                     <!-- Result Card -->
                     <div id="est-result-card" style="background:linear-gradient(135deg,rgba(255,99,0,0.15),rgba(92,15,217,0.15));border:1px solid rgba(255,99,0,0.3);border-radius:24px;padding:2.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:280px;backdrop-filter:blur(10px);">
                         <div id="est-placeholder" style="color:rgba(255,255,255,0.4);">
-                            <i class="fas fa-calculator" style="font-size:3rem;margin-bottom:1rem;display:block;opacity:0.5;"></i>
-                            <p style="font-size:1rem;">Select size and distance to see estimate</p>
+                            <i class="fas fa-clipboard-list" style="font-size:3rem;margin-bottom:1rem;display:block;opacity:0.5;"></i>
+                            <p style="font-size:1rem;">Complete the steps to request your personalized quote</p>
                         </div>
                         <div id="est-result" style="display:none;width:100%;">
                             <p style="color:rgba(255,255,255,0.9);font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;">Almost there!</p>
                             <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:1.5rem;" id="unlock-hint">Please provide your details below and our team will contact you with an accurate quote.</p>
                             
-                            <!-- Hidden elements for backend calculation -->
-                            <span id="est-min" style="display:none;"></span>
-                            <span id="est-max" style="display:none;"></span>
+                            <!-- Hidden elements removed as calculation is no longer needed -->
                             
                             <div id="estimator-lead-form-container" style="margin-top:1rem; width:100%; max-width:400px; margin-left:auto; margin-right:auto;">
                                 <form id="estimatorLeadForm" style="display:flex; flex-direction:column; gap:0.8rem;">
@@ -1236,13 +1234,8 @@
             }
             
             if(currentStep === totalSteps) {
-                nextBtn.innerHTML = 'Calculate Quote <i class="fas fa-check"></i>';
-                nextBtn.onclick = function() {
-                    calcEstimate();
-                    if(window.innerWidth < 800) {
-                        document.getElementById('est-result-card').scrollIntoView({behavior: 'smooth', block: 'center'});
-                    }
-                };
+                nextBtn.innerHTML = '';
+               
             } else {
                 nextBtn.innerHTML = 'Next Step <i class="fas fa-arrow-right"></i>';
                 nextBtn.onclick = nextStep;
@@ -1506,18 +1499,6 @@
             
             const finalBase = totalWithPacking + vehicleCost;
 
-            // Generate realistic standard range (-15% to +20%)
-            const min = Math.round((finalBase * 0.85) / 100) * 100;
-            const max = Math.round((finalBase * 1.20) / 100) * 100;
-
-            document.getElementById('est-min').textContent = min.toLocaleString('en-IN');
-            document.getElementById('est-max').textContent = max.toLocaleString('en-IN');
-            
-            if(!window.estUnlocked) {
-                document.getElementById('est-min').style.filter = 'blur(8px)';
-                document.getElementById('est-max').style.filter = 'blur(8px)';
-            }
-
             placeholder.style.display = 'none';
             result.style.display = 'block';
 
@@ -1556,13 +1537,11 @@
             formData.append('email', document.getElementById('estEmail').value);
             formData.append('phone', document.getElementById('estPhone').value);
             
-            const min = document.getElementById('est-min').textContent;
-            const max = document.getElementById('est-max').textContent;
             let message = `Estimator Lead Details:\n\n`;
             message += `From: ${cityData.from}\n`;
             message += `To: ${cityData.to}\n`;
             message += `Distance: ${estData.distance} KM\n`;
-            message += `Estimated Quote: ₹${min} - ₹${max}\n`;
+            
             
             formData.append('message', message);
             formData.append('subject', 'Moving Estimator Request');
@@ -1971,7 +1950,6 @@
     </main>
 
     <!-- Global JS -->
-    <script src="assets/js/smooth-scroll.js"></script>
     <script src="assets/js/animations.js"></script>
     
     <!-- Page Specific JS -->
