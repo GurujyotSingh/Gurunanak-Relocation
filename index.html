@@ -979,15 +979,14 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <label style="display:flex;justify-content:space-between;color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.8rem;">
-                                        <span>2. Total Distance</span>
-                                        <span style="color:#ff6300;font-weight:700;"><span id="distance-val-display">50</span> KM</span>
-                                    </label>
-                                    <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:1.2rem 1rem;">
-                                        <input type="range" id="distance-slider" min="10" max="3000" value="50" step="10" style="width:100%; cursor:pointer; accent-color:#ff6300;" oninput="updateDistance(this.value)">
-                                        <div style="display:flex;justify-content:space-between;color:rgba(255,255,255,0.4);font-size:0.7rem;margin-top:0.8rem;font-weight:600;">
-                                            <span>Local</span>
-                                            <span>Pan India</span>
+                                    <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.8rem;">2. Total Distance</label>
+                                    <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:1.2rem 1rem; display:flex; align-items:center; gap: 1rem;">
+                                        <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg, #ff6300, #5c0fd9); display:flex; align-items:center; justify-content:center; color:white; font-size:1.2rem; box-shadow: 0 4px 15px rgba(255,99,0,0.3);">
+                                            <i class="fas fa-route"></i>
+                                        </div>
+                                        <div>
+                                            <div style="color:rgba(255,255,255,0.5); font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.2rem;">Calculated Route</div>
+                                            <div style="color:#fff; font-size:1.2rem; font-weight:700;"><span id="distance-val-display">--</span> KM</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1379,7 +1378,6 @@
             if(cityData.from && cityData.to) {
                 const dist = calculateDistance(cityData.from, cityData.to);
                 estData.distance = dist;
-                document.getElementById('distance-slider').value = dist;
                 document.getElementById('distance-val-display').textContent = dist;
             }
 
