@@ -867,7 +867,7 @@
                     
                     <!-- Overlapping Stat Box -->
                     <div class="editorial-stats">
-                        <h3 class="js-counter" data-target="5">0</h3>
+                        <h3 class="js-counter" data-target="5"></h3>
                         <p>Years Experience</p>
                     </div>
                 </div>
@@ -886,48 +886,169 @@
 
                 <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;" id="estimator-grid">
                     <!-- Inputs Card -->
-                    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:2.5rem;backdrop-filter:blur(10px);">
+                    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:2.5rem;backdrop-filter:blur(10px); position:relative; z-index:100; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
                         
-                        <!-- House Size -->
-                        <div style="margin-bottom:2rem;">
-                            <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1rem;">What are you moving?</label>
-                            <div class="est-radio-group" id="group-size">
-                                <button class="est-btn" data-val="3000" onclick="selectEst(this, 'size')"><i class="fas fa-couch"></i> Few Items</button>
-                                <button class="est-btn" data-val="5000" onclick="selectEst(this, 'size')">1 BHK</button>
-                                <button class="est-btn" data-val="9000" onclick="selectEst(this, 'size')">2 BHK</button>
-                                <button class="est-btn" data-val="14000" onclick="selectEst(this, 'size')">3 BHK</button>
-                                <button class="est-btn" data-val="20000" onclick="selectEst(this, 'size')">4+ BHK</button>
+                        <!-- Wizard Header -->
+                        <div class="wizard-header">
+                            <div class="wizard-progress">
+                                <div class="wizard-progress-bar" id="wizard-bar" style="width: 33.33%;"></div>
+                            </div>
+                            <span class="wizard-step-text" id="wizard-text">Step 1 of 3</span>
+                        </div>
+                        
+                        <div class="wizard-body">
+                            <!-- Step 1: Location -->
+                            <div class="est-step active" id="step-1">
+                                <h3 style="color:#fff; font-size:1.2rem; margin-bottom:1.5rem; font-weight:600;">Where are you moving?</h3>
+                                <!-- Location Selection -->
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; position:relative; z-index:50;">
+                                <div class="city-picker-wrapper" id="from-picker">
+                                    <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;">Moving From</label>
+                                    <div class="city-input-box" id="from-box" onclick="toggleCityDropdown('from-dropdown', event)">
+                                        <div class="circle-icon green"></div>
+                                        <input type="text" id="from-input" placeholder="From" readonly>
+                                    </div>
+                                    <div class="city-dropdown" id="from-dropdown">
+                                        <p class="dropdown-title">Popular Cities</p>
+                                        <div class="popular-grid">
+                                            <button class="city-icon-btn" onclick="selectCity('from', 'Ahmedabad', event)"><div class="icon-circle"><i class="fa-solid fa-mosque"></i></div><span>Ahmedabad</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('from', 'Bangalore', event)"><div class="icon-circle"><i class="fa-solid fa-landmark-dome"></i></div><span>Bangalore</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('from', 'Chennai', event)"><div class="icon-circle"><i class="fa-solid fa-vihara"></i></div><span>Chennai</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('from', 'Delhi NCR', event)"><div class="icon-circle"><i class="fa-solid fa-monument"></i></div><span>Delhi NCR</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('from', 'Gurgaon', event)"><div class="icon-circle"><i class="fa-solid fa-city"></i></div><span>Gurgaon</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('from', 'Mumbai', event)"><div class="icon-circle"><i class="fa-solid fa-archway"></i></div><span>Mumbai</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('from', 'Pune', event)"><div class="icon-circle"><i class="fa-brands fa-fort-awesome"></i></div><span>Pune</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('from', 'Hyderabad', event)"><div class="icon-circle"><i class="fa-solid fa-chess-rook"></i></div><span>Hyderabad</span></button>
+                                        </div>
+                                        <p class="dropdown-title">Other Cities</p>
+                                        <ul class="other-cities-list">
+                                            <li onclick="selectCity('from', 'Gandhinagar', event)"><i class="fa-solid fa-location-dot"></i> Gandhinagar</li>
+                                            <li onclick="selectCity('from', 'Baroda', event)"><i class="fa-solid fa-location-dot"></i> Baroda</li>
+                                            <li onclick="selectCity('from', 'Surat', event)"><i class="fa-solid fa-location-dot"></i> Surat</li>
+                                            <li onclick="selectCity('from', 'Sanand', event)"><i class="fa-solid fa-location-dot"></i> Sanand</li>
+                                            <li onclick="selectCity('from', 'Rajkot', event)"><i class="fa-solid fa-location-dot"></i> Rajkot</li>
+                                            <li onclick="selectCity('from', 'Jamnagar', event)"><i class="fa-solid fa-location-dot"></i> Jamnagar</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="city-picker-wrapper" id="to-picker">
+                                    <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;">Moving To</label>
+                                    <div class="city-input-box" id="to-box" onclick="toggleCityDropdown('to-dropdown', event)">
+                                        <div class="circle-icon red"></div>
+                                        <input type="text" id="to-input" placeholder="To" readonly>
+                                    </div>
+                                    <div class="city-dropdown" id="to-dropdown">
+                                        <p class="dropdown-title">Popular Cities</p>
+                                        <div class="popular-grid">
+                                            <button class="city-icon-btn" onclick="selectCity('to', 'Ahmedabad', event)"><div class="icon-circle"><i class="fa-solid fa-mosque"></i></div><span>Ahmedabad</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('to', 'Bangalore', event)"><div class="icon-circle"><i class="fa-solid fa-landmark-dome"></i></div><span>Bangalore</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('to', 'Chennai', event)"><div class="icon-circle"><i class="fa-solid fa-vihara"></i></div><span>Chennai</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('to', 'Delhi NCR', event)"><div class="icon-circle"><i class="fa-solid fa-monument"></i></div><span>Delhi NCR</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('to', 'Gurgaon', event)"><div class="icon-circle"><i class="fa-solid fa-city"></i></div><span>Gurgaon</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('to', 'Mumbai', event)"><div class="icon-circle"><i class="fa-solid fa-archway"></i></div><span>Mumbai</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('to', 'Pune', event)"><div class="icon-circle"><i class="fa-brands fa-fort-awesome"></i></div><span>Pune</span></button>
+                                            <button class="city-icon-btn" onclick="selectCity('to', 'Hyderabad', event)"><div class="icon-circle"><i class="fa-solid fa-chess-rook"></i></div><span>Hyderabad</span></button>
+                                        </div>
+                                        <p class="dropdown-title">Other Cities</p>
+                                        <ul class="other-cities-list">
+                                            <li onclick="selectCity('to', 'Gandhinagar', event)"><i class="fa-solid fa-location-dot"></i> Gandhinagar</li>
+                                            <li onclick="selectCity('to', 'Baroda', event)"><i class="fa-solid fa-location-dot"></i> Baroda</li>
+                                            <li onclick="selectCity('to', 'Surat', event)"><i class="fa-solid fa-location-dot"></i> Surat</li>
+                                            <li onclick="selectCity('to', 'Sanand', event)"><i class="fa-solid fa-location-dot"></i> Sanand</li>
+                                            <li onclick="selectCity('to', 'Rajkot', event)"><i class="fa-solid fa-location-dot"></i> Rajkot</li>
+                                            <li onclick="selectCity('to', 'Jamnagar', event)"><i class="fa-solid fa-location-dot"></i> Jamnagar</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <!-- Step 2: Size & Distance -->
+                            <div class="est-step" id="step-2">
+                                <h3 style="color:#fff; font-size:1.2rem; margin-bottom:1.5rem; font-weight:600;">What are you moving?</h3>
+                                <!-- Size & Distance -->
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                                <div>
+                                    <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;">1. Move Size</label>
+                                    <div class="est-radio-group" id="group-size">
+                                        <button class="est-btn" data-val="3500" onclick="selectEst(this, 'size')"><i class="fas fa-couch"></i> 1 RK</button>
+                                        <button class="est-btn" data-val="6500" onclick="selectEst(this, 'size')">1 BHK</button>
+                                        <button class="est-btn" data-val="10000" onclick="selectEst(this, 'size')">2 BHK</button>
+                                        <button class="est-btn" data-val="15000" onclick="selectEst(this, 'size')">3 BHK</button>
+                                        <button class="est-btn" data-val="22000" onclick="selectEst(this, 'size')">4+ BHK</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label style="display:flex;justify-content:space-between;color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.8rem;">
+                                        <span>2. Total Distance</span>
+                                        <span style="color:#ff6300;font-weight:700;"><span id="distance-val-display">50</span> KM</span>
+                                    </label>
+                                    <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:1.2rem 1rem;">
+                                        <input type="range" id="distance-slider" min="10" max="3000" value="50" step="10" style="width:100%; cursor:pointer; accent-color:#ff6300;" oninput="updateDistance(this.value)">
+                                        <div style="display:flex;justify-content:space-between;color:rgba(255,255,255,0.4);font-size:0.7rem;margin-top:0.8rem;font-weight:600;">
+                                            <span>Local</span>
+                                            <span>Pan India</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <!-- Step 3: Logistics -->
+                            <div class="est-step" id="step-3">
+                                <h3 style="color:#fff; font-size:1.2rem; margin-bottom:1.5rem; font-weight:600;">Logistics & Extras</h3>
+                                <!-- Floors -->
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                                <div>
+                                    <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.8rem;">3. Origin Floor</label>
+                                    <div class="floor-selector">
+                                        <button class="floor-btn" onclick="updateFloor('floor', -1)"><i class="fas fa-minus"></i></button>
+                                        <div class="floor-display" id="floor-val-display">G / Lift</div>
+                                        <button class="floor-btn" onclick="updateFloor('floor', 1)"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.8rem;">4. Dest Floor</label>
+                                    <div class="floor-selector">
+                                        <button class="floor-btn" onclick="updateFloor('floorTo', -1)"><i class="fas fa-minus"></i></button>
+                                        <div class="floor-display" id="floorTo-val-display">G / Lift</div>
+                                        <button class="floor-btn" onclick="updateFloor('floorTo', 1)"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Packing & Vehicle -->
+                            <div style="display:grid; grid-template-columns: 1fr; gap:1.5rem;">
+                                <div>
+                                    <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.8rem;">5. Packing Quality</label>
+                                    <div class="packing-toggle-wrapper" onclick="togglePacking()">
+                                        <span class="p-label active" id="p-label-std">Standard</span>
+                                        <div class="p-switch"><div class="p-knob" id="p-knob"></div></div>
+                                        <span class="p-label" id="p-label-pre"><i class="fas fa-box-open"></i> Premium</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.8rem;">6. Vehicle Transport</label>
+                                    <div class="vehicle-cards">
+                                        <div class="v-card active" onclick="selectVehicle(0, this)">
+                                            <i class="fas fa-times-circle"></i><span>None</span>
+                                        </div>
+                                        <div class="v-card" onclick="selectVehicle(3500, this)">
+                                            <i class="fas fa-motorcycle"></i><span>Bike</span>
+                                        </div>
+                                        <div class="v-card" onclick="selectVehicle(8000, this)">
+                                            <i class="fas fa-car"></i><span>Car</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
 
-                        <!-- Distance -->
-                        <div style="margin-bottom:2rem;">
-                            <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1rem;">How far?</label>
-                            <div class="est-radio-group" id="group-distance">
-                                <button class="est-btn" data-val="1.0" onclick="selectEst(this, 'distance')"><i class="fas fa-map-marker-alt"></i> Local (&lt;50km)</button>
-                                <button class="est-btn" data-val="1.5" onclick="selectEst(this, 'distance')">50–200km</button>
-                                <button class="est-btn" data-val="2.2" onclick="selectEst(this, 'distance')">200–500km</button>
-                                <button class="est-btn" data-val="3.0" onclick="selectEst(this, 'distance')">500km+</button>
-                            </div>
-                        </div>
-
-                        <!-- Floor -->
-                        <div style="margin-bottom:2rem;">
-                            <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1rem;">Moving from Floor</label>
-                            <div class="est-radio-group" id="group-floor">
-                                <button class="est-btn active" data-val="0" onclick="selectEst(this, 'floor')">Ground / Lift</button>
-                                <button class="est-btn" data-val="1500" onclick="selectEst(this, 'floor')">No Lift (4th+)</button>
-                            </div>
-                        </div>
-
-                        <!-- Vehicle -->
-                        <div>
-                            <label style="display:block;color:rgba(255,255,255,0.7);font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1rem;">Include Vehicle Transport?</label>
-                            <div class="est-radio-group" id="group-vehicle">
-                                <button class="est-btn active" data-val="0" onclick="selectEst(this, 'vehicle')">None</button>
-                                <button class="est-btn" data-val="2500" onclick="selectEst(this, 'vehicle')"><i class="fas fa-motorcycle"></i> Bike</button>
-                                <button class="est-btn" data-val="6000" onclick="selectEst(this, 'vehicle')"><i class="fas fa-car"></i> Car</button>
-                            </div>
+                        <!-- Navigation -->
+                        <div class="wizard-nav">
+                            <button class="wizard-btn-outline" id="wizard-prev" onclick="prevStep()" style="visibility:hidden;">Back</button>
+                            <button class="wizard-btn-primary" id="wizard-next" onclick="nextStep()">Next Step <i class="fas fa-arrow-right"></i></button>
                         </div>
 
                     </div>
@@ -959,26 +1080,260 @@
         </section>
 
         <style>
-        .est-radio-group { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+        .est-radio-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .est-btn {
             background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6);
-            padding: 0.8rem 1.2rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; cursor: pointer;
-            transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.6rem 0.9rem; border-radius: 50px; font-size: 0.82rem; font-weight: 500; cursor: pointer;
+            transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.4rem;
         }
         .est-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
         .est-btn.active {
             background: linear-gradient(135deg, #ff6300, #5c0fd9); border-color: transparent; color: #fff;
             box-shadow: 0 4px 15px rgba(255,99,0,0.3);
         }
+
+        /* City Selector Styles */
+        .city-picker-wrapper { position: relative; }
+        .city-input-box {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1rem 1.2rem;
+            display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.3s ease;
+        }
+        .city-input-box:hover { background: rgba(255,255,255,0.08); }
+        .city-input-box.active { border-color: #ff6300; background: rgba(255,255,255,0.1); box-shadow: 0 0 20px rgba(255,99,0,0.15); }
+        .circle-icon { width: 16px; height: 16px; border-radius: 50%; border: 3px solid; flex-shrink: 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.3); }
+        .circle-icon.green { border-color: #10b981; }
+        .circle-icon.red { border-color: #ef4444; }
+        .city-input-box input {
+            border: none; outline: none; width: 100%; font-family: inherit; font-size: 1.05rem; color: #fff;
+            background: transparent; font-weight: 500; cursor: pointer; letter-spacing: 0.5px;
+        }
+        .city-input-box input::placeholder { color: rgba(255,255,255,0.4); }
+        
+        .city-dropdown {
+            position: absolute; top: calc(100% + 15px); left: 0; width: 360px; background: #0f172a; border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.7); z-index: 9999; padding: 1.5rem; display: none;
+            max-height: 450px; overflow-y: auto; color: #fff;
+        }
+        .city-dropdown.show { display: block; animation: dropFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes dropFade { from { opacity: 0; transform: translateY(-10px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .dropdown-title { font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; margin-top: 1.5rem; }
+        .dropdown-title:first-child { margin-top: 0; }
+        .popular-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem 0.5rem; text-align: center; }
+        .city-icon-btn {
+            display: flex; flex-direction: column; align-items: center; gap: 0.6rem; cursor: pointer; border: none; background: none; font-family: inherit; padding: 0; outline: none;
+        }
+        .city-icon-btn .icon-circle {
+            width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #fde8b1, #f6d365);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #1e293b;
+            transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(246, 211, 101, 0.2);
+        }
+        .city-icon-btn:hover .icon-circle { transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 15px rgba(246, 211, 101, 0.4); }
+        .city-icon-btn span { font-size: 0.75rem; color: #e2e8f0; font-weight: 500; white-space: nowrap; transition: color 0.3s; }
+        .city-icon-btn:hover span { color: #fff; }
+        
+        .other-cities-list { list-style: none; padding: 0; margin: 0; }
+        .other-cities-list li {
+            padding: 0.9rem 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 12px; cursor: pointer;
+            font-size: 0.95rem; color: #cbd5e1; font-weight: 400; transition: all 0.2s ease; border-radius: 8px;
+        }
+        .other-cities-list li:hover { background: rgba(255,255,255,0.05); color: #fff; padding-left: 10px; border-bottom-color: transparent; }
+        .other-cities-list li i { color: #ff6300; font-size: 1.1rem; }
+
+        /* Custom Scrollbar for Dropdown */
+        .city-dropdown::-webkit-scrollbar { width: 6px; }
+        .city-dropdown::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); border-radius: 4px; }
+        .city-dropdown::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+        .city-dropdown::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
+
         @media (max-width: 800px) {
             #estimator-grid { grid-template-columns: 1fr !important; }
+            .city-dropdown { width: 100%; max-width: 340px; }
         }
+
+        /* Wizard Styles */
+        .wizard-header { margin-bottom: 2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+        .wizard-progress { flex-grow: 1; height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
+        .wizard-progress-bar { height: 100%; background: linear-gradient(90deg, #ff6300, #5c0fd9); border-radius: 10px; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 0 10px rgba(255,99,0,0.5); }
+        .wizard-step-text { color: rgba(255,255,255,0.6); font-size: 0.85rem; font-weight: 600; white-space: nowrap; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .wizard-body { position: relative; min-height: 220px; overflow: visible; }
+        .est-step { display: none; flex-direction: column; gap: 1.5rem; animation: slideInRight 0.4s ease forwards; }
+        .est-step.active { display: flex; }
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+        
+        .wizard-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; }
+        .wizard-btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 0.7rem 1.5rem; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .wizard-btn-outline:hover { background: rgba(255,255,255,0.1); }
+        .wizard-btn-primary { background: linear-gradient(135deg, #ff6300, #5c0fd9); border: none; color: #fff; padding: 0.7rem 1.5rem; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-left: auto; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(255,99,0,0.3); }
+        .wizard-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,99,0,0.4); }
+        
+        /* Premium Step 3 Styles */
+        .floor-selector { display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:0.5rem; }
+        .floor-btn { background:transparent; border:none; color:var(--primary); font-size:1.2rem; cursor:pointer; width:40px; height:40px; border-radius:8px; display:flex; align-items:center; justify-content:center; transition:background 0.2s; }
+        .floor-btn:hover { background:rgba(255,99,0,0.1); }
+        .floor-display { font-size:1rem; font-weight:700; color:#fff; }
+        
+        .packing-toggle-wrapper { display:flex; align-items:center; justify-content:center; gap:1.5rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:1rem; cursor:pointer; user-select:none; }
+        .p-label { color:rgba(255,255,255,0.5); font-weight:600; font-size:0.9rem; transition:color 0.3s; }
+        .p-label.active { color:#fff; }
+        .p-switch { width:60px; height:32px; background:rgba(255,255,255,0.1); border-radius:50px; position:relative; transition:background 0.3s; }
+        .p-switch.active { background:linear-gradient(135deg, #ff6300, #5c0fd9); box-shadow:0 0 10px rgba(255,99,0,0.5); }
+        .p-knob { width:24px; height:24px; background:#fff; border-radius:50%; position:absolute; top:4px; left:4px; transition:transform 0.3s cubic-bezier(0.4,0,0.2,1); box-shadow:0 2px 5px rgba(0,0,0,0.3); }
+        .p-switch.active .p-knob { transform:translateX(28px); }
+        
+        .vehicle-cards { display:grid; grid-template-columns:repeat(3, 1fr); gap:1rem; }
+        .v-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:1.5rem 1rem; display:flex; flex-direction:column; align-items:center; gap:0.8rem; cursor:pointer; transition:all 0.3s ease; color:rgba(255,255,255,0.5); }
+        .v-card i { font-size:2rem; }
+        .v-card span { font-size:0.9rem; font-weight:600; }
+        .v-card:hover { background:rgba(255,255,255,0.08); }
+        .v-card.active { background:linear-gradient(135deg, rgba(255,99,0,0.15), rgba(92,15,217,0.15)); border-color:var(--primary); color:#fff; box-shadow:0 10px 20px rgba(255,99,0,0.1); transform:translateY(-2px); }
         </style>
 
         <script>
-        // State
-        const estData = { size: null, distance: null, floor: 0, vehicle: 0 };
+        // Wizard Logic
+        let currentStep = 1;
+        const totalSteps = 3;
 
+        function updateWizard() {
+            // Update steps
+            for(let i=1; i<=totalSteps; i++) {
+                document.getElementById('step-' + i).classList.remove('active');
+            }
+            document.getElementById('step-' + currentStep).classList.add('active');
+            
+            // Update progress bar
+            document.getElementById('wizard-bar').style.width = ((currentStep / totalSteps) * 100) + '%';
+            document.getElementById('wizard-text').textContent = 'Step ' + currentStep + ' of ' + totalSteps;
+            
+            // Update buttons
+            const prevBtn = document.getElementById('wizard-prev');
+            const nextBtn = document.getElementById('wizard-next');
+            
+            if(currentStep === 1) {
+                prevBtn.style.visibility = 'hidden';
+            } else {
+                prevBtn.style.visibility = 'visible';
+            }
+            
+            if(currentStep === totalSteps) {
+                nextBtn.innerHTML = 'Calculate Quote <i class="fas fa-check"></i>';
+                nextBtn.onclick = function() {
+                    calcEstimate();
+                    if(window.innerWidth < 800) {
+                        document.getElementById('est-result-card').scrollIntoView({behavior: 'smooth', block: 'center'});
+                    }
+                };
+            } else {
+                nextBtn.innerHTML = 'Next Step <i class="fas fa-arrow-right"></i>';
+                nextBtn.onclick = nextStep;
+            }
+        }
+
+        function nextStep() {
+            if(currentStep === 1 && (!cityData.from || !cityData.to)) {
+                alert('Please select both Origin and Destination cities to continue.');
+                return;
+            }
+            if(currentStep === 2 && !estData.size) {
+                alert('Please select your Move Size to continue.');
+                return;
+            }
+            if(currentStep < totalSteps) {
+                currentStep++;
+                updateWizard();
+            }
+        }
+
+        function prevStep() {
+            if(currentStep > 1) {
+                currentStep--;
+                updateWizard();
+            }
+        }
+
+        // State
+        const estData = { size: null, distance: 50, floor: 0, floorTo: 0, packing: 1.0, vehicle: 0 };
+        const cityData = { from: null, to: null };
+
+        function updateDistance(val) {
+            document.getElementById('distance-val-display').textContent = val;
+            estData.distance = parseInt(val);
+            calcEstimate();
+        }
+
+        function updateFloor(type, delta) {
+            let current = estData[type];
+            let newVal = current + delta;
+            if(newVal < 0) newVal = 0;
+            if(newVal > 15) newVal = 15;
+            estData[type] = newVal;
+            document.getElementById(type + '-val-display').textContent = newVal === 0 ? "G / Lift" : "Floor " + newVal;
+            calcEstimate();
+        }
+
+        function togglePacking() {
+            const isPremium = estData.packing === 1.3;
+            estData.packing = isPremium ? 1.0 : 1.3;
+            const knobWrapper = document.querySelector('.p-switch');
+            const lStd = document.getElementById('p-label-std');
+            const lPre = document.getElementById('p-label-pre');
+            if(!isPremium) {
+                knobWrapper.classList.add('active');
+                lPre.classList.add('active');
+                lStd.classList.remove('active');
+            } else {
+                knobWrapper.classList.remove('active');
+                lPre.classList.remove('active');
+                lStd.classList.add('active');
+            }
+            calcEstimate();
+        }
+
+        function selectVehicle(val, el) {
+            estData.vehicle = val;
+            document.querySelectorAll('.v-card').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            calcEstimate();
+        }
+
+        // Handle City Dropdowns
+        function toggleCityDropdown(dropdownId, e) {
+            e.stopPropagation();
+            // Close others
+            document.querySelectorAll('.city-dropdown').forEach(d => {
+                if(d.id !== dropdownId) d.classList.remove('show');
+            });
+            document.querySelectorAll('.city-input-box').forEach(b => b.classList.remove('active'));
+            
+            const dropdown = document.getElementById(dropdownId);
+            const box = document.getElementById(dropdownId.replace('dropdown', 'box'));
+            
+            dropdown.classList.toggle('show');
+            if(dropdown.classList.contains('show')) box.classList.add('active');
+        }
+
+        function selectCity(type, cityName, e) {
+            e.stopPropagation();
+            document.getElementById(type + '-input').value = cityName;
+            cityData[type] = cityName;
+            
+            // Close dropdowns
+            document.querySelectorAll('.city-dropdown').forEach(d => d.classList.remove('show'));
+            document.querySelectorAll('.city-input-box').forEach(b => b.classList.remove('active'));
+            
+            calcEstimate();
+        }
+
+        // Close dropdowns on outside click
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.city-picker-wrapper')) {
+                document.querySelectorAll('.city-dropdown').forEach(d => d.classList.remove('show'));
+                document.querySelectorAll('.city-input-box').forEach(b => b.classList.remove('active'));
+            }
+        });
+
+        // Handle Estimator Option Selection
         function selectEst(btn, groupName) {
             // Update active state in UI
             const group = document.getElementById('group-' + groupName);
@@ -995,15 +1350,49 @@
             const placeholder = document.getElementById('est-placeholder');
             const result = document.getElementById('est-result');
 
-            if (!estData.size || !estData.distance) {
+            // We require size, distance, and both cities to show the final quote.
+            if (!estData.size || !estData.distance || !cityData.from || !cityData.to) {
                 placeholder.style.display = 'block';
                 result.style.display = 'none';
+                
+                // Update placeholder text dynamically
+                if(!cityData.from || !cityData.to) {
+                    placeholder.querySelector('p').textContent = 'Please select origin and destination cities';
+                } else if (!estData.size) {
+                    placeholder.querySelector('p').textContent = 'Select house size to see estimate';
+                } else if (!estData.distance) {
+                    placeholder.querySelector('p').textContent = 'Select move distance to see estimate';
+                }
                 return;
             }
 
-            const base = (estData.size * estData.distance) + estData.floor + estData.vehicle;
-            const min = Math.round(base * 0.85 / 100) * 100;
-            const max = Math.round(base * 1.25 / 100) * 100;
+            // Industry-Standard Calculation Model
+            let km = estData.distance;
+            let distMult = 1.0;
+            if (km > 50 && km <= 300) distMult = 1.0 + ((km-50)/250) * 0.8;
+            else if (km > 300 && km <= 800) distMult = 1.8 + ((km-300)/500) * 0.7;
+            else if (km > 800) distMult = 2.5 + Math.min(1.5, ((km-800)/1000) * 0.9);
+            
+            // 1. Base cost of volumetric movement over distance multiplier
+            const baseVolumeCost = estData.size * distMult;
+            
+            // 2. Floor loading/unloading effort scales with the size of the move
+            const sizeMultiplier = Math.max(1, estData.size / 5000); 
+            const originFloorCost = (estData.floor * 1000) * sizeMultiplier;
+            const destFloorCost = (estData.floorTo * 1000) * sizeMultiplier;
+            
+            // 3. Vehicle transport relies mostly on distance multiplier, so we add it base and multiply
+            const vehicleCost = estData.vehicle * (km <= 50 ? 1 : distMult * 0.6);
+
+            // 4. Premium packing acts as a multiplier on the physical goods move
+            const subtotal = baseVolumeCost + originFloorCost + destFloorCost;
+            const totalWithPacking = subtotal * estData.packing;
+            
+            const finalBase = totalWithPacking + vehicleCost;
+
+            // Generate realistic standard range (-15% to +20%)
+            const min = Math.round((finalBase * 0.85) / 100) * 100;
+            const max = Math.round((finalBase * 1.20) / 100) * 100;
 
             placeholder.style.display = 'none';
             result.style.display = 'block';
