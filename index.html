@@ -1550,13 +1550,15 @@
             formData.append('email', document.getElementById('estEmail').value);
             formData.append('phone', document.getElementById('estPhone').value);
             
-            let message = `Estimator Lead Details:\n\n`;
-            message += `From: ${cityData.from}\n`;
-            message += `To: ${cityData.to}\n`;
+            let message = `Estimator Details:\n`;
             message += `Distance: ${estData.distance} KM\n`;
-            
+            message += `Floor Origin: ${estData.floor}\n`;
+            message += `Floor Dest: ${estData.floorTo}\n`;
             
             formData.append('message', message);
+            formData.append('from', cityData.from);
+            formData.append('to', cityData.to);
+            formData.append('service', 'Estimator Quote (' + estData.size + ' CFT)');
             formData.append('subject', 'Moving Estimator Request');
             formData.append('form_type', 'estimator_lead');
             formData.append('g-recaptcha-response', 'bypass');
