@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Assuming the script URL is the same as the contact form one in Contactus.html
             // If the user hasn't replaced the URL globally, they will need to ensure this is correct.
-            const googleScriptURL = 'https://script.google.com/macros/s/AKfycby1NkSoVdzixfxKR38Bp4UNAtY_Qk4kM1M5-EAq48-EjNKf_0Y14edc5L55EN1K8E-sKw/exec';
+            const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxieEHJkQibMTDk1gAZvjooitIIPu8yW6mbTGzNaPfIovM_fQjgaTXZAZlYiH7rKq69Pw/exec';
 
             fetch(googleScriptURL, {
                 method: "POST",
