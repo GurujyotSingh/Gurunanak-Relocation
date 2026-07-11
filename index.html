@@ -1234,11 +1234,24 @@
             }
             
             if(currentStep === totalSteps) {
-                nextBtn.innerHTML = '';
-               
+                nextBtn.innerHTML = 'Calculate Quote <i class="fas fa-check"></i>';
+                nextBtn.onclick = showLeadForm;
+                nextBtn.style.display = 'inline-flex';
             } else {
                 nextBtn.innerHTML = 'Next Step <i class="fas fa-arrow-right"></i>';
                 nextBtn.onclick = nextStep;
+                nextBtn.style.display = 'inline-flex';
+            }
+        }
+
+        function showLeadForm() {
+            document.getElementById('est-placeholder').style.display = 'none';
+            document.getElementById('est-result').style.display = 'block';
+            document.getElementById('wizard-next').style.display = 'none'; // Hide button after clicking
+            
+            // Scroll to form on mobile
+            if(window.innerWidth <= 992) {
+                document.getElementById('est-result-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
 
@@ -1459,9 +1472,9 @@
             const placeholder = document.getElementById('est-placeholder');
             const result = document.getElementById('est-result');
 
-            // We require size, distance, and both cities to show the final quote.
+            // We require size, distance, and both cities to calculate the final quote behind the scenes.
             if (!estData.size || !estData.distance || !cityData.from || !cityData.to) {
-                placeholder.style.display = 'block';
+                // Ensure form is hidden until explicitly shown
                 result.style.display = 'none';
                 
                 // Update placeholder text dynamically
@@ -1499,8 +1512,8 @@
             
             const finalBase = totalWithPacking + vehicleCost;
 
-            placeholder.style.display = 'none';
-            result.style.display = 'block';
+            // Notice: We do NOT toggle the display here anymore. 
+            // The display is toggled only when the user clicks "Calculate Quote" on Step 3 (showLeadForm).
 
         function animateCount(el, target) {
             let start = 0;
@@ -1548,7 +1561,7 @@
             formData.append('form_type', 'estimator_lead');
             formData.append('g-recaptcha-response', 'bypass');
             
-            const googleScriptURL = 'https://script.google.com/macros/s/AKfycbyxN81mAbErYVr-2lTm8QdjidI-TIWBxnXL0sDm2E6EqHp9BXSurJdDwgWT8R4pWtnCWg/exec';
+            const googleScriptURL = 'https://script.google.com/macros/s/AKfycby1NkSoVdzixfxKR38Bp4UNAtY_Qk4kM1M5-EAq48-EjNKf_0Y14edc5L55EN1K8E-sKw/exec';
             
             fetch(googleScriptURL, {
                 method: 'POST',
@@ -1843,7 +1856,7 @@
 
         <script>
             // This URL needs to be updated by the user after deploying their new Apps Script!
-            const TESTIMONIALS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxN81mAbErYVr-2lTm8QdjidI-TIWBxnXL0sDm2E6EqHp9BXSurJdDwgWT8R4pWtnCWg/exec';
+            const TESTIMONIALS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby1NkSoVdzixfxKR38Bp4UNAtY_Qk4kM1M5-EAq48-EjNKf_0Y14edc5L55EN1K8E-sKw/exec';
 
             async function loadTestimonials() {
                 const container = document.getElementById('dynamic-testimonials');
